@@ -48,5 +48,10 @@
     <Compile Include="AnalogyOnlineExampleDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Analogy.LogViewer.Interfaces">
+      <Version>2.1.5</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
