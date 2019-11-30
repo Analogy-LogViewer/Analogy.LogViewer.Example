@@ -27,7 +27,8 @@ namespace Analogy.Implementation.Example
         readonly Random random = new Random();
         readonly Array values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
-        public void InitDataProvider()
+
+        public Task InitializeDataProviderAsync()
         {
             SimulateOnlineMessages = new Timer(100);
 
@@ -52,11 +53,17 @@ namespace Analogy.Implementation.Example
                     OnMessageReady(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
                 }
             };
+            return Task.CompletedTask;
         }
 
+        public void MessageOpened(AnalogyLogMessage message)
+        {
+            //nop
+        }
+     
         public void StartReceiving()
         {
-            InitDataProvider();
+            InitializeDataProviderAsync();
             SimulateOnlineMessages?.Start();
         }
 
