@@ -8,7 +8,7 @@ using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Example
 {
-    class AnalogyOnlineExampleDataProvider : IAnalogyRealTimeDataProvider
+    class OnlineExampleDataProvider : IAnalogyRealTimeDataProvider
     {
         public string OptionalTitle { get; }
         public Guid ID {get;}
@@ -28,7 +28,7 @@ namespace Analogy.LogViewer.Example
         readonly Array values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private readonly string prefixMessage;
-        public AnalogyOnlineExampleDataProvider(string prefix,Guid guid)
+        public OnlineExampleDataProvider(string prefix,Guid guid)
         {
             prefixMessage = prefix;
             ID = guid;

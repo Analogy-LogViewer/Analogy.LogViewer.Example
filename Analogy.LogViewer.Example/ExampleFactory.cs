@@ -5,13 +5,13 @@ using Analogy.Interfaces.Factories;
 
 namespace Analogy.LogViewer.Example
 {
-    public class AnalogyExampleFactory : IAnalogyFactory
+    public class ExampleFactory : IAnalogyFactory
     {
         public Guid FactoryID => new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
 
         public string Title => "Analogy Examples";
 
-        public IAnalogyDataProvidersFactory DataProviders { get; } = new AnalogyDataProviderFactory();
+        public IAnalogyDataProvidersFactory DataProviders { get; } = new ExampleDataProviderFactory();
 
         public IAnalogyCustomActionsFactory Actions => null;
 
