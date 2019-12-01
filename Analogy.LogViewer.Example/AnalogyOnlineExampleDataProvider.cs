@@ -10,8 +10,8 @@ namespace Analogy.LogViewer.Example
 {
     class AnalogyOnlineExampleDataProvider : IAnalogyRealTimeDataProvider
     {
-        public string OptionalTitle { get; } = "Analogy Example: Real time Data Provider";
-        public Guid ID => new Guid("6642B160-F992-4120-B688-B02DE2E83256");
+        public string OptionalTitle { get; }
+        public Guid ID {get;}
 
         public bool AutoStartAtLaunch => true;
         public bool IsConnected => true;
@@ -27,7 +27,13 @@ namespace Analogy.LogViewer.Example
         readonly Random random = new Random();
         readonly Array values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
-
+        private readonly string prefixMessage;
+        public AnalogyOnlineExampleDataProvider(string prefix,Guid guid)
+        {
+            prefixMessage = prefix;
+            ID = guid;
+            OptionalTitle = $"Analogy Example: Real time Data Provider {prefix}";
+        }
         public Task InitializeDataProviderAsync()
         {
             SimulateOnlineMessages = new Timer(100);
@@ -43,14 +49,14 @@ namespace Analogy.LogViewer.Example
                     string randomProcess = processes[random.Next(processes.Count)];
                     AnalogyLogMessage m = new AnalogyLogMessage
                     {
-                        Text = $"Generated message #{messageCount++}",
+                        Text = $"{prefixMessage}: Generated message #{messageCount++}",
                         Level = randomLevel,
                         Class = AnalogyLogClass.General,
                         Source = "Example",
                         Module = randomProcess
                     };
 
-                    OnMessageReady(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
+                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
                 }
             };
             return Task.CompletedTask;
