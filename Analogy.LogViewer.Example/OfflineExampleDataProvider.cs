@@ -27,7 +27,7 @@ namespace Analogy.LogViewer.Example
             OptionalTitle = $"Analogy Example:  Offline Data Provider ({prefix})";
         }
 
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             return Task.CompletedTask;
         }

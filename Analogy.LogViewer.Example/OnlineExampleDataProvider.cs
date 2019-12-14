@@ -28,14 +28,16 @@ namespace Analogy.LogViewer.Example
         readonly Array values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private readonly string prefixMessage;
+        private IAnalogyLogger Logger { get; set; }
         public OnlineExampleDataProvider(string prefix,Guid guid)
         {
             prefixMessage = prefix;
             ID = guid;
             OptionalTitle = $"Analogy Example: Real time Data Provider {prefix}";
         }
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
+            Logger = logger;
             SimulateOnlineMessages = new Timer(100);
 
             SimulateOnlineMessages.Elapsed += (s, e) =>
@@ -69,7 +71,7 @@ namespace Analogy.LogViewer.Example
      
         public void StartReceiving()
         {
-            InitializeDataProviderAsync();
+            InitializeDataProviderAsync(Logger);
             SimulateOnlineMessages?.Start();
         }
 
