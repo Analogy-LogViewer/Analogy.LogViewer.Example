@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using Analogy.Interfaces;
+﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
+using System;
+using System.Collections.Generic;
 
 namespace Analogy.LogViewer.Example
 {
     public class ExampleFactory : IAnalogyFactory
     {
-        public Guid FactoryID => new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
+        internal static Guid Id = new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
+        public Guid FactoryId => Id;
 
         public string Title => "Analogy Examples";
 
-        public IAnalogyDataProvidersFactory DataProviders { get; } = new ExampleDataProviderFactory();
-
-        public IAnalogyCustomActionsFactory Actions => null;
-
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; } = new List<AnalogyChangeLog>
         {
+            new AnalogyChangeLog("Update Analogy.Interface version to 2.2.0",AnalogChangeLogType.None, "Lior Banai",new DateTime(2020, 03, 30)),
             new AnalogyChangeLog("Update Analogy.Interface version to 2.1.7",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 09, 14)),
             new AnalogyChangeLog("Create example implementation",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 08, 15)),
             new AnalogyChangeLog("Add Thread ID",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 08, 20)),
