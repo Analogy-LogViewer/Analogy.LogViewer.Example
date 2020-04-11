@@ -5,7 +5,7 @@
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
 	  <IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.2.0</Version>
+		<Version>1.2.1</Version>
 		<Authors>Lior Banai</Authors>
 		<Company>Lior Banai</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -18,14 +18,14 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<AssemblyVersion>1.2.0.0</AssemblyVersion>
-		<FileVersion>1.2.0.0</FileVersion>
+		<AssemblyVersion>1.2.1.0</AssemblyVersion>
+		<FileVersion>1.2.1.0</FileVersion>
 		<Description>Example dll</Description>
 		<PackageReleaseNotes>Align with Interface DLL V2.2.0</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.2.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.2.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
