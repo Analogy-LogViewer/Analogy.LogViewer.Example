@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
@@ -29,6 +30,12 @@ namespace Analogy.LogViewer.Example
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private readonly string prefixMessage;
         private IAnalogyLogger Logger { get; set; }
+        public bool UseCustomColors { get; set; } = false;
+        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+            => Array.Empty<(string, string)>();
+
+        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+            => (Color.Empty, Color.Empty);
         public OnlineExampleDataProvider(string prefix,Guid guid)
         {
             prefixMessage = prefix;
