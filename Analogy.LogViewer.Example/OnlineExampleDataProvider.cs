@@ -29,13 +29,17 @@ namespace Analogy.LogViewer.Example
         readonly Array values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private readonly string prefixMessage;
+        private Random rnd = new Random();
         private IAnalogyLogger Logger { get; set; }
-        public bool UseCustomColors { get; set; } = false;
+        public bool UseCustomColors { get; set; } = true;
+
         public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
-            => Array.Empty<(string, string)>();
+        {
+            yield return ("Category", "Test");
+        }
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
-            => (Color.Empty, Color.Empty);
+            => logMessage.Level== AnalogyLogLevel.Unknown ? (Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)), Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256))) :(Color.Empty, Color.Empty);
         public OnlineExampleDataProvider(string prefix,Guid guid)
         {
             prefixMessage = prefix;
