@@ -59,7 +59,7 @@ namespace Analogy.LogViewer.Example
 
         public bool CanOpenFile(string fileName)
         {
-            return true;
+            return false;
         }
 
         public bool CanOpenAllFiles(IEnumerable<string> fileNames)
