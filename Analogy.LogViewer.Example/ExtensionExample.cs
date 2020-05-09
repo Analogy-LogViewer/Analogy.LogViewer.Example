@@ -16,6 +16,7 @@ namespace Analogy.LogViewer.Example
     public class ExtensionExample : IAnalogyExtension
     {
         public Guid ID { get; } = new Guid("8F66A278-CC9C-4643-8045-165572FF17D4");
+        public Guid TargetProviderId { get; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");
         public string Author { get; } = "Lior Banai";
         public string AuthorMail { get; } = "LiorBanai@gmail.com";
         public List<string> AdditionalContributors { get; } = new List<string>(0);
