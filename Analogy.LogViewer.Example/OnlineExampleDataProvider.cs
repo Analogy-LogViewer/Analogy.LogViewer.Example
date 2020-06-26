@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Example
 {
     class OnlineExampleDataProvider : IAnalogyRealTimeDataProvider
     {
         public string OptionalTitle { get; }
-        public Guid ID {get;}
+        public Guid ID { get; }
 
         public bool AutoStartAtLaunch => true;
         public bool IsConnected => true;
@@ -39,8 +39,8 @@ namespace Analogy.LogViewer.Example
         }
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
-            => logMessage.Level== AnalogyLogLevel.Unknown ? (Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)), Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256))) :(Color.Empty, Color.Empty);
-        public OnlineExampleDataProvider(string prefix,Guid guid)
+            => logMessage.Level == AnalogyLogLevel.Unknown ? (Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)), Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256))) : (Color.Empty, Color.Empty);
+        public OnlineExampleDataProvider(string prefix, Guid guid)
         {
             prefixMessage = prefix;
             ID = guid;
@@ -66,7 +66,8 @@ namespace Analogy.LogViewer.Example
                         Level = randomLevel,
                         Class = AnalogyLogClass.General,
                         Source = "Example",
-                        Module = randomProcess
+                        Module = randomProcess,
+                        MachineName = Environment.MachineName
                     };
 
                     OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
@@ -79,7 +80,7 @@ namespace Analogy.LogViewer.Example
         {
             //nop
         }
-     
+
         public void StartReceiving()
         {
             InitializeDataProviderAsync(Logger);
