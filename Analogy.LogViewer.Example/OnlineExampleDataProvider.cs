@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace Analogy.LogViewer.Example
 {
@@ -14,12 +15,9 @@ namespace Analogy.LogViewer.Example
         public string OptionalTitle { get; }
         public Guid ID { get; }
 
-        public bool AutoStartAtLaunch => true;
-        public bool IsConnected => true;
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
         public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;
-
         public async Task<bool> CanStartReceiving() => await Task.FromResult(true);
 
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
@@ -67,7 +65,10 @@ namespace Analogy.LogViewer.Example
                         Class = AnalogyLogClass.General,
                         Source = "Example",
                         Module = randomProcess,
-                        MachineName = Environment.MachineName
+                        MachineName = Environment.MachineName,
+                        ThreadId = Thread.CurrentThread.ManagedThreadId,
+                        AdditionalInformation = new Dictionary<string, string>(){{"Test Column","value"}, { "Test Column2", "value2" } }
+                        
                     };
 
                     OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
