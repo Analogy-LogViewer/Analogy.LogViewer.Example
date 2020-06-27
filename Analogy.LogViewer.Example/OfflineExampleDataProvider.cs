@@ -16,9 +16,9 @@ namespace Analogy.LogViewer.Example
         public string OptionalTitle { get; }
 
         public bool CanSaveToLogFile { get; } = false;
-        public string FileOpenDialogFilters { get; } = "All supported Analogy log file types|*.log;*.json|Plain Analogy XML log file (*.log)|*.log|Analogy JSON file (*.json)|*.json";
-        public string FileSaveDialogFilters { get; } = String.Empty;
-        public IEnumerable<string> SupportFormats { get; } = new[] { "*.log", "*.json" };
+        public string FileOpenDialogFilters { get; } = "None (*.none)|*.none";
+        public string FileSaveDialogFilters { get; } = string.Empty;
+        public IEnumerable<string> SupportFormats { get; } = new[] { "*.none" };
         public string InitialFolderFullPath { get; } = Environment.CurrentDirectory;
         public bool UseCustomColors { get; set; } = false;
         public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()

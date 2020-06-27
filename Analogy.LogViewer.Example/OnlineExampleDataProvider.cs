@@ -64,6 +64,7 @@ namespace Analogy.LogViewer.Example
                         Level = randomLevel,
                         Class = AnalogyLogClass.General,
                         Source = "Example",
+                        User = Environment.UserName,
                         Module = randomProcess,
                         MachineName = Environment.MachineName,
                         ThreadId = Thread.CurrentThread.ManagedThreadId,
