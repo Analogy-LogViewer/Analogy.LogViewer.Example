@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
+		<TargetFrameworks>net472;net471;netcoreapp3.1</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.2.5</Version>
+		<Version>1.2.6</Version>
 		<Authors>Lior Banai</Authors>
 		<Company>Lior Banai</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -19,14 +19,14 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<AssemblyVersion>1.2.5.0</AssemblyVersion>
-		<FileVersion>1.2.5.0</FileVersion>
+		<AssemblyVersion>1.2.6.0</AssemblyVersion>
+		<FileVersion>1.2.6.0</FileVersion>
 		<Description>Example dll</Description>
-		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageReleaseNotes>add net471 target</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.6" />
+		<PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.7" />
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.3.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
