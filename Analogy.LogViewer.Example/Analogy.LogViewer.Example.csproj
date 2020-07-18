@@ -6,9 +6,9 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.2.6</Version>
+		<Version>1.2.6.1</Version>
 		<Authors>Lior Banai</Authors>
-		<Company>Lior Banai</Company>
+		<Company>Analogy.LogViewer.Example</Company>
 		<Product>Analogy.LogViewer.Example</Product>
 		<PackageId>Analogy.LogViewer.Example</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,10 +19,11 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<AssemblyVersion>1.2.6.0</AssemblyVersion>
-		<FileVersion>1.2.6.0</FileVersion>
-		<Description>Example dll</Description>
-		<PackageReleaseNotes>add net471 target</PackageReleaseNotes>
+		<AssemblyVersion>1.2.6.1</AssemblyVersion>
+		<FileVersion>1.2.6.1</FileVersion>
+		<Description>Example implementation of Analogy Log Viewer Data Provider</Description>
+		<PackageReleaseNotes>Example implementation of Analogy Log Viewer Data Provider</PackageReleaseNotes>
+		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,6 +37,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="System.Resources.Extensions" Version="4.6.0"/>
 	</ItemGroup>
 
 	<ItemGroup>
