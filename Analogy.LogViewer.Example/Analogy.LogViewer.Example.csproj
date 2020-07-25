@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
+		<TargetFrameworks>net472;net471;netcoreapp3.1</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.2.6</Version>
+		<Version>1.2.7</Version>
 		<Authors>Lior Banai</Authors>
-		<Company>Lior Banai</Company>
+		<Company>Analogy.LogViewer.Example</Company>
 		<Product>Analogy.LogViewer.Example</Product>
 		<PackageId>Analogy.LogViewer.Example</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,15 +19,16 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<AssemblyVersion>1.2.6.0</AssemblyVersion>
-		<FileVersion>1.2.6.0</FileVersion>
-		<Description>Example dll</Description>
-		<PackageReleaseNotes></PackageReleaseNotes>
+		<AssemblyVersion>1.2.7</AssemblyVersion>
+		<FileVersion>1.2.7</FileVersion>
+		<Description>Example implementation of Analogy Log Viewer Data Provider</Description>
+		<PackageReleaseNotes>Example implementation of Analogy Log Viewer Data Provider</PackageReleaseNotes>
+		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.6" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.3.1" />
+		<PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.7.1" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.3.1.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -36,6 +37,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="System.Resources.Extensions" Version="4.6.0"/>
 	</ItemGroup>
 
 	<ItemGroup>
