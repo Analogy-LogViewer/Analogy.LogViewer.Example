@@ -29,7 +29,7 @@ namespace Analogy.LogViewer.Example
         private readonly string prefixMessage;
         private Random rnd = new Random();
         private IAnalogyLogger Logger { get; set; }
-        public bool UseCustomColors { get; set; } = true;
+        public bool UseCustomColors { get; set; } = false;
 
         public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
         {
@@ -68,8 +68,8 @@ namespace Analogy.LogViewer.Example
                         Module = randomProcess,
                         MachineName = Environment.MachineName,
                         ThreadId = Thread.CurrentThread.ManagedThreadId,
-                        AdditionalInformation = new Dictionary<string, string>(){{"Test Column","value"}, { "Test Column2", "value2" } }
-                        
+                        AdditionalInformation = new Dictionary<string, string>() { { "Test Column", "value" }, { "Test Column2", "value2" } }
+
                     };
 
                     OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
