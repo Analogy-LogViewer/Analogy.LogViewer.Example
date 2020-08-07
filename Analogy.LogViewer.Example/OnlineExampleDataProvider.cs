@@ -60,7 +60,7 @@ namespace Analogy.LogViewer.Example
                     string randomProcess = processes[random.Next(processes.Count)];
                     AnalogyLogMessage m = new AnalogyLogMessage
                     {
-                        Text = $"{prefixMessage}: Generated message #{messageCount++}",
+                        Text = $"{prefixMessage}: Generated message #{messageCount++}" + string.Join(Environment.NewLine, Enumerable.Range(0, random.Next(1, 5)).Select(i => $"row {i}")),
                         Level = randomLevel,
                         Class = AnalogyLogClass.General,
                         Source = "Example",
@@ -68,7 +68,7 @@ namespace Analogy.LogViewer.Example
                         Module = randomProcess,
                         MachineName = Environment.MachineName,
                         ThreadId = Thread.CurrentThread.ManagedThreadId,
-                        AdditionalInformation = new Dictionary<string, string>() { { "Random Column",random.Next(0,10).ToString() }, { "Random Column 2", random.Next(0, 10).ToString() } }
+                        AdditionalInformation = new Dictionary<string, string>() { { "Random Column", random.Next(0, 10).ToString() }, { "Random Column 2", random.Next(0, 10).ToString() } }
 
                     };
 
