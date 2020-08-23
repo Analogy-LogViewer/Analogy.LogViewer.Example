@@ -12,7 +12,7 @@
 		<Product>Analogy.LogViewer.Example</Product>
 		<PackageId>Analogy.LogViewer.Example</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Lior Banai</Copyright>
+		<Copyright>Lior Banai © 2020</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Example</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Example</RepositoryUrl>
