@@ -83,16 +83,17 @@ namespace Analogy.LogViewer.Example
             //nop
         }
 
-        public void StartReceiving()
+        public async Task StartReceiving()
         {
-            InitializeDataProviderAsync(Logger);
+            await InitializeDataProviderAsync(Logger);
             SimulateOnlineMessages?.Start();
         }
 
-        public void StopReceiving()
+        public Task StopReceiving()
         {
             SimulateOnlineMessages?.Stop();
             OnDisconnected?.Invoke(this, new AnalogyDataSourceDisconnectedArgs("user disconnected", Environment.MachineName, ID));
+            return Task.CompletedTask;
         }
     }
 }
