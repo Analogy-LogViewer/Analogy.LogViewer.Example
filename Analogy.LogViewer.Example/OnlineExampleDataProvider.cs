@@ -13,8 +13,12 @@ namespace Analogy.LogViewer.Example
     class OnlineExampleDataProvider : IAnalogyRealTimeDataProvider
     {
         public string OptionalTitle { get; }
-        public Guid ID { get; }
+        public Guid Id { get; }
 
+        public Image ConnectedLargeImage { get; } = null;
+        public Image ConnectedSmallImage { get; } = null;
+        public Image DisconnectedLargeImage { get; } = null;
+        public Image DisconnectedSmallImage { get; } = null;
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
         public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;
@@ -41,7 +45,7 @@ namespace Analogy.LogViewer.Example
         public OnlineExampleDataProvider(string prefix, Guid guid)
         {
             prefixMessage = prefix;
-            ID = guid;
+            Id = guid;
             OptionalTitle = $"Analogy Example: Real time Data Provider {prefix}";
         }
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
@@ -72,7 +76,7 @@ namespace Analogy.LogViewer.Example
 
                     };
 
-                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", ID));
+                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", Id));
                 }
             };
             return Task.CompletedTask;
@@ -92,7 +96,7 @@ namespace Analogy.LogViewer.Example
         public Task StopReceiving()
         {
             SimulateOnlineMessages?.Stop();
-            OnDisconnected?.Invoke(this, new AnalogyDataSourceDisconnectedArgs("user disconnected", Environment.MachineName, ID));
+            OnDisconnected?.Invoke(this, new AnalogyDataSourceDisconnectedArgs("user disconnected", Environment.MachineName, Id));
             return Task.CompletedTask;
         }
     }

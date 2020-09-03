@@ -12,7 +12,10 @@ namespace Analogy.LogViewer.Example
     class OfflineExampleDataProvider : IAnalogyOfflineDataProvider
     {
         public bool DisableFilePoolingOption { get; } = false;
-        public Guid ID { get; }
+        public Guid Id { get; }
+        public Image LargeImage => null;
+        public Image SmallImage => null;
+
         public string OptionalTitle { get; }
 
         public bool CanSaveToLogFile { get; } = false;
@@ -28,7 +31,7 @@ namespace Analogy.LogViewer.Example
             => (Color.Empty, Color.Empty);
         public OfflineExampleDataProvider(string prefix, Guid guid)
         {
-            ID = guid;
+            Id = guid;
             OptionalTitle = $"Analogy Example:  Offline Data Provider ({prefix})";
         }
 
