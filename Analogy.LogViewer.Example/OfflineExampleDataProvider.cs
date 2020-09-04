@@ -12,11 +12,11 @@ namespace Analogy.LogViewer.Example
     class OfflineExampleDataProvider : IAnalogyOfflineDataProvider
     {
         public bool DisableFilePoolingOption { get; } = false;
-        public Guid Id { get; }
-        public Image LargeImage => null;
-        public Image SmallImage => null;
+        public Guid Id { get; set; }
+        public Image LargeImage { get; set; } = null;
+        public Image SmallImage { get; set; } = null;
 
-        public string OptionalTitle { get; }
+        public string OptionalTitle { get; set; }
 
         public bool CanSaveToLogFile { get; } = false;
         public string FileOpenDialogFilters { get; } = "None (*.none)|*.none";

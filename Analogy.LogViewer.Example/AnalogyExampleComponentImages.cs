@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
-using Analogy.DataProviders.Extensions;
+using Analogy.Interfaces;
 using Analogy.LogViewer.Example.Properties;
 
 namespace Analogy.LogViewer.Example

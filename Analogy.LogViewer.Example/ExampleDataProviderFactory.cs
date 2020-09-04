@@ -7,8 +7,8 @@ namespace Analogy.LogViewer.Example
 {
     public class ExampleDataProviderFactory : IAnalogyDataProvidersFactory
     {
-        public Guid FactoryId { get; } = ExampleFactory.Id;
-        public string Title => "Analogy Online example";
+        public Guid FactoryId { get; set; } = ExampleFactory.Id;
+        public string Title { get; set; } = "Analogy Online example";
 
         public IEnumerable<IAnalogyDataProvider> DataProviders => new List<IAnalogyDataProvider>
         {

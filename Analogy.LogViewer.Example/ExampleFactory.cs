@@ -8,11 +8,11 @@ namespace Analogy.LogViewer.Example
     public class ExampleFactory : IAnalogyFactory
     {
         internal static Guid Id = new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
-        public Guid FactoryId => Id;
+        public Guid FactoryId { get; set; } = Id;
 
-        public string Title => "Analogy Examples";
+        public string Title { get; set; } = "Analogy Examples";
 
-        public IEnumerable<IAnalogyChangeLog> ChangeLog { get; } = new List<AnalogyChangeLog>
+        public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = new List<AnalogyChangeLog>
         {
             new AnalogyChangeLog("Update Analogy.Interface version to 2.2.0",AnalogChangeLogType.None, "Lior Banai",new DateTime(2020, 03, 30)),
             new AnalogyChangeLog("Update Analogy.Interface version to 2.1.7",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 09, 14)),
@@ -21,7 +21,7 @@ namespace Analogy.LogViewer.Example
             new AnalogyChangeLog("Add File handler for online data source (aligned with new interface)",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 09, 09)),
             new AnalogyChangeLog("Update new interface and add more than 1 data provider",AnalogChangeLogType.None, "Lior Banai",new DateTime(2019, 12, 01))
         };
-        public IEnumerable<string> Contributors { get; } = new List<string> { "Lior Banai" };
-        public string About { get; } = "Analogy Example Data Source";
+        public IEnumerable<string> Contributors { get; set; } = new List<string> { "Lior Banai" };
+        public string About { get; set; } = "Analogy Example Data Source";
     }
 }
