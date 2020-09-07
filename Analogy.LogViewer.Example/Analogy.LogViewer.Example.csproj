@@ -6,7 +6,7 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.5.1</Version>
+		<Version>1.6.0</Version>
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -19,8 +19,8 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<AssemblyVersion>1.5.1.0</AssemblyVersion>
-		<FileVersion>1.5.1.0</FileVersion>
+		<AssemblyVersion>1.6.0.0</AssemblyVersion>
+		<FileVersion>1.6.0.0</FileVersion>
 		<Description>Example implementation of Analogy Log Viewer Data Provider</Description>
 		<PackageReleaseNotes>Example implementation of Analogy Log Viewer Data Provider</PackageReleaseNotes>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
