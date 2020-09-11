@@ -2,12 +2,13 @@
 using Analogy.Interfaces.Factories;
 using System;
 using System.Collections.Generic;
+using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.Example
 {
     public class ExtensionFactoryExample : IAnalogyExtensionsFactory
     {
-        public Guid FactoryId { get; set; } = ExampleFactory.Id;
+        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Extension Example";
         public IEnumerable<IAnalogyExtension> Extensions { get; } = new List<IAnalogyExtension> { new ExtensionExample() };
     }

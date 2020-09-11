@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Analogy.LogViewer.Example
 {
-    public class ExampleDataProviderFactory : IAnalogyDataProvidersFactory
+    public class DataProviderFactory : IAnalogyDataProvidersFactory
     {
-        public Guid FactoryId { get; set; } = ExampleFactory.Id;
+        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Analogy Online example";
 
         public IEnumerable<IAnalogyDataProvider> DataProviders => new List<IAnalogyDataProvider>
