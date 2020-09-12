@@ -1,16 +1,17 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
+using Analogy.LogViewer.Template;
 using System;
 using System.Collections.Generic;
 
 namespace Analogy.LogViewer.Example
 {
-    public class DataProviderFactory : IAnalogyDataProvidersFactory
+    public class ExampleDataProviderFactory : DataProvidersFactory
     {
-        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
-        public string Title { get; set; } = "Analogy Online example";
+        public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public override string Title { get; set; } = "Analogy Online example";
 
-        public IEnumerable<IAnalogyDataProvider> DataProviders => new List<IAnalogyDataProvider>
+        public override IEnumerable<IAnalogyDataProvider> DataProviders { get; set; } = new List<IAnalogyDataProvider>
         {
             //add 2 "real time data providers"
             new OnlineExampleDataProvider("Data Provider 1", new Guid("6642B160-F992-4120-B688-B02DE2E83256")),

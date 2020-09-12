@@ -6,28 +6,25 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Analogy.LogViewer.Example.Properties;
+using Analogy.LogViewer.Template;
 
 namespace Analogy.LogViewer.Example
 {
-    class OfflineExampleDataProvider : IAnalogyOfflineDataProvider
+    class OfflineExampleDataProvider : OfflineDataProvider
     {
-        public bool DisableFilePoolingOption { get; } = false;
-        public Guid Id { get; set; }
-        public Image LargeImage { get; set; } = null;
-        public Image SmallImage { get; set; } = null;
+        public override Guid Id { get; set; }
+        public override Image LargeImage { get; set; } = Resources.Analogy_image_32x32;
+        public override Image SmallImage { get; set; } = Resources.Analogy_image_16x16;
 
-        public string OptionalTitle { get; set; }
-
-        public bool CanSaveToLogFile { get; } = false;
-        public string FileOpenDialogFilters { get; } = "None (*.none)|*.none";
-        public string FileSaveDialogFilters { get; } = string.Empty;
-        public IEnumerable<string> SupportFormats { get; } = new[] { "*.none" };
-        public string InitialFolderFullPath { get; } = Environment.CurrentDirectory;
-        public bool UseCustomColors { get; set; } = false;
-        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+        public override string OptionalTitle { get; set; } 
+        public override string FileOpenDialogFilters { get; set; } = "None (*.none)|*.none";
+        public override IEnumerable<string> SupportFormats { get; set; } = new[] { "*.none" };
+        public override string InitialFolderFullPath { get;  } = Environment.CurrentDirectory;
+        public override IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public override (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public OfflineExampleDataProvider(string prefix, Guid guid)
         {
@@ -35,37 +32,38 @@ namespace Analogy.LogViewer.Example
             OptionalTitle = $"Analogy Example:  Offline Data Provider ({prefix})";
         }
 
-        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override  Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
-            return Task.CompletedTask;
+            //do some initialization for this provider
+            return base.InitializeDataProviderAsync(logger);
         }
 
-        public void MessageOpened(AnalogyLogMessage message)
+        public override  void MessageOpened(AnalogyLogMessage message)
         {
             //nop
         }
 
-        public Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
+        public override Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             return Task.FromResult(new List<AnalogyLogMessage>(0).AsEnumerable());
         }
 
-        public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad)
+        protected override List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
         {
-            return new List<FileInfo>(0);
+            return base.GetSupportedFilesInternal(dirInfo, recursive);
         }
 
-        public Task SaveAsync(List<AnalogyLogMessage> messages, string fileName)
+        public override Task SaveAsync(List<AnalogyLogMessage> messages, string fileName)
         {
             return Task.CompletedTask;
         }
 
-        public bool CanOpenFile(string fileName)
+        public override bool CanOpenFile(string fileName)
         {
             return false;
         }
 
-        public bool CanOpenAllFiles(IEnumerable<string> fileNames)
+        public override bool CanOpenAllFiles(IEnumerable<string> fileNames)
         {
             return fileNames.All(CanOpenFile);
         }
