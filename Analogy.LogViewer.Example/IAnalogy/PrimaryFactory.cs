@@ -9,7 +9,7 @@ namespace Analogy.LogViewer.Example
 {
     public class PrimaryFactory : IAnalogyFactory
     {
-        internal static Guid Id = new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
+        internal static readonly Guid Id = new Guid("4B1EBC0F-64DD-44A1-BC27-79DBFC6384CC");
         public Guid FactoryId { get; set; } = Id;
 
         public string Title { get; set; } = "Analogy Examples";
