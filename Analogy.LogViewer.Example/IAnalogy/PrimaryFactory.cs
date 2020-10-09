@@ -1,9 +1,9 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
+using Analogy.LogViewer.Example.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Analogy.LogViewer.Example.Properties;
 
 namespace Analogy.LogViewer.Example
 {
@@ -13,8 +13,8 @@ namespace Analogy.LogViewer.Example
         public Guid FactoryId { get; set; } = Id;
 
         public string Title { get; set; } = "Analogy Examples";
-        public Image SmallImage { get; set; } = Resources.Analogy_image_16x16;
-        public Image LargeImage { get; set; } = Resources.Analogy_image_32x32;
+        public Image? SmallImage { get; set; } = Resources.Analogy_image_16x16;
+        public Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;
 
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = new List<AnalogyChangeLog>
         {
