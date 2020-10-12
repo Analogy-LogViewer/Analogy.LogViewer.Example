@@ -20,7 +20,7 @@ namespace Analogy.LogViewer.Example
         public override string? OptionalTitle { get; set; } 
         public override string FileOpenDialogFilters { get; set; } = "None (*.none)|*.none";
         public override IEnumerable<string> SupportFormats { get; set; } = new[] { "*.none" };
-        public override string InitialFolderFullPath { get;  } = Environment.CurrentDirectory;
+        public override string? InitialFolderFullPath { get; set; } = Environment.CurrentDirectory;
         public override IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
