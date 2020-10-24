@@ -15,7 +15,7 @@
 <a href="https://github.com/Analogy-LogViewer/Analogy.LogViewer.Example/releases">
     <img src="https://img.shields.io/github/v/release/Analogy-LogViewer/Analogy.LogViewer.Example" img alt="Latest Release"/>
 </a>
-<a href="https://github.com/Analogy-LogViewer/Analogy.LogViewer.Example/compare/V1.0.8...master">
+<a href="https://github.com/Analogy-LogViewer/Analogy.LogViewer.Example/compare/V1.7.9...master">
     <img src="https://img.shields.io/github/commits-since/Analogy-LogViewer/Analogy.LogViewer.Example/latest" img alt="Commits Since Latest Release"/>
 </a>
 
