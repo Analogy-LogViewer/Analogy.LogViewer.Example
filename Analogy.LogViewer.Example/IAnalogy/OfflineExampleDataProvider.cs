@@ -11,7 +11,7 @@ using Analogy.LogViewer.Template;
 
 namespace Analogy.LogViewer.Example
 {
-    class OfflineExampleDataProvider : OfflineDataProvider
+    public sealed class OfflineExampleDataProvider : Analogy.LogViewer.Template.OfflineDataProvider
     {
         public override Guid Id { get; set; }
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;

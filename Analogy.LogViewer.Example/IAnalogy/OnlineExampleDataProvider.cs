@@ -10,7 +10,7 @@ using Timer = System.Timers.Timer;
 
 namespace Analogy.LogViewer.Example
 {
-    class OnlineExampleDataProvider : Analogy.LogViewer.Template.OnlineDataProvider
+    public sealed class OnlineExampleDataProvider : Analogy.LogViewer.Template.OnlineDataProvider
     {
         public override string? OptionalTitle { get; set; }
         public override Guid Id { get; set; }
@@ -76,7 +76,7 @@ namespace Analogy.LogViewer.Example
 
         public override Task StopReceiving()
         {
-            _simulateOnlineMessages?.Stop();
+            _simulateOnlineMessages.Stop();
             Disconnected(this, new AnalogyDataSourceDisconnectedArgs("user disconnected", Environment.MachineName, Id));
             return Task.CompletedTask;
         }
