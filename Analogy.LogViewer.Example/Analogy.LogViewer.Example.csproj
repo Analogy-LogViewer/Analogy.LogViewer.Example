@@ -6,7 +6,6 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.7.9</Version>
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -24,12 +23,13 @@
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 		<Nullable>enable</Nullable>
 		<LangVersion>8.0</LangVersion>
+		<Version>1.8.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="1.4.1" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="1.4.2" />
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.8.1.1" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="1.6.10" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="1.6.10.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
