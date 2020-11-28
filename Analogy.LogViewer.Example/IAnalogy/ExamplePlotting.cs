@@ -11,6 +11,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
     {
         public event EventHandler<AnalogyPlottingPointData> OnNewPointData;
         public Guid Id { get; set; } = new Guid("b8b4be8d-2cff-48ac-90f6-477d36271e84");
+        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Example real time plotting";
         private Timer simulateData;
         int counter = 0;
@@ -36,12 +37,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return Task.CompletedTask;
         }
 
-        public List<(string SeriesName, AnalogyPlottingSeriesType SeriesViewType)> GetChartSeries()
+        public IEnumerable<(string SeriesName, AnalogyPlottingSeriesType SeriesViewType)> GetChartSeries()
         {
-            var items = new List<(string SeriesName, AnalogyPlottingSeriesType SeriesViewType)>();
-            items.Add(("series1", AnalogyPlottingSeriesType.Line));
-            items.Add(("series2", AnalogyPlottingSeriesType.Line));
-            return items;
+            yield return ("series1", AnalogyPlottingSeriesType.Line);
+            yield return ("series2", AnalogyPlottingSeriesType.Line);
         }
         private void SimulateData_Tick(object sender, EventArgs e)
         {
