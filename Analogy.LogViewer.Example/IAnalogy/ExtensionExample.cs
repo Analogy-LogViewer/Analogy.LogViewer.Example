@@ -1,8 +1,11 @@
 ﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
+using Analogy.LogViewer.Example.IAnalogy;
 using System;
 using System.Collections.Generic;
-using Analogy.Interfaces.DataTypes;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Analogy.LogViewer.Example
 {
@@ -10,20 +13,19 @@ namespace Analogy.LogViewer.Example
     {
         public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Extension Example";
-        public IEnumerable<IAnalogyExtension> Extensions { get; } = new List<IAnalogyExtension> { new ExtensionExample() };
+        public IEnumerable<IAnalogyExtension> Extensions { get; } = new List<IAnalogyExtension> { new ExtensionInPlaceExample(), new ExtensionUserControlExample() };
     }
 
 
-    public class ExtensionExample : IAnalogyExtension
+    public class ExtensionInPlaceExample : IAnalogyExtensionInPlace
     {
         public Guid Id { get; set; } = new Guid("8F66A278-CC9C-4643-8045-165572FF17D4");
-        public Guid TargetProviderId { get; set; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");
+        public Guid TargetComponentId { get; set; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");
         public string Author { get; set; } = "Lior Banai";
         public string AuthorMail { get; set; } = "LiorBanai@gmail.com";
         public List<string> AdditionalContributors { get; } = new List<string>(0);
         public string Title { get; set; } = "Extension Example";
         public string Description { get; set; } = "Example how to use extension columns (AnalogyExtensionType.InPlace)";
-        public AnalogyExtensionType ExtensionType { get; } = AnalogyExtensionType.InPlace;
 
         public void CellClicked(object sender, AnalogyCellClickedEventArgs args)
         {
@@ -52,4 +54,31 @@ namespace Analogy.LogViewer.Example
 
 
     }
+    public class ExtensionUserControlExample : IAnalogyExtensionUserControl
+    {
+        public Guid Id { get; set; } = new Guid("34c45425-8acd-4f8e-b901-d234297fe3ec");
+        public Guid TargetComponentId { get; set; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");
+        public string Author { get; set; } = "Lior Banai";
+        public string AuthorMail { get; set; } = "LiorBanai@gmail.com";
+        public List<string> AdditionalContributors { get; } = new List<string>(0);
+        public string Title { get; set; } = "Extension Example";
+        public string Description { get; set; } = "Example how to use extension User Control";
+        public UserControl UserControl { get; set; } = new UserControlExtensionExample();
+
+        public Task InitUserControl { get; set; } = Task.CompletedTask;
+
+
+        public void NewMessage(AnalogyLogMessage message)
+        {
+            (UserControl as UserControlExtensionExample)?.UserClickMessage(message);
+        }
+
+        public void NewMessages(List<AnalogyLogMessage> messages)
+        {
+            //
+        }
+
+
+    }
+
 }
