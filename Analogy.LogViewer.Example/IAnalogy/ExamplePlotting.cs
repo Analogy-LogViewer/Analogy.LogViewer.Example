@@ -47,7 +47,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             var now = DateTime.Now;
             AnalogyPlottingPointData d1 = new AnalogyPlottingPointData("series1", GenerateValue(counter), now);
             OnNewPointData?.Invoke(this, d1);
-            AnalogyPlottingPointData d2 = new AnalogyPlottingPointData("series1", GenerateValue(counter + 50), now);
+            AnalogyPlottingPointData d2 = new AnalogyPlottingPointData("series2", GenerateValue(counter + 50), now);
             OnNewPointData?.Invoke(this, d2);
             counter++;
         }
