@@ -51,7 +51,7 @@ namespace Analogy.LogViewer.Example
                 string randomProcess = _processes[_random.Next(_processes.Count)];
                 AnalogyLogMessage m = new AnalogyLogMessage
                 {
-                    Text = $"{_prefixMessage}: Generated message #{_messageCount++}" + string.Join(Environment.NewLine, Enumerable.Range(0, _random.Next(1, 5)).Select(i => $"row {i}")),
+                    Text = $"{_prefixMessage}: Generated message #{_messageCount++}" + string.Join(Environment.NewLine, Enumerable.Range(0, _random.Next(1, 5)).Select(i => $" row {i}")),
                     Level = randomLevel,
                     Class = AnalogyLogClass.General,
                     Source = "Example",
