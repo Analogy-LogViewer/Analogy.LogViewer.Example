@@ -63,10 +63,12 @@ namespace Analogy.LogViewer.Example
         public List<string> AdditionalContributors { get; } = new List<string>(0);
         public string Title { get; set; } = "Extension Example";
         public string Description { get; set; } = "Example how to use extension User Control";
+        Task IAnalogyExtensionUserControl.InitializeUserControl(Control hostingControl, IAnalogyLogger logger)
+        {
+            return Task.CompletedTask;
+        }
+
         public UserControl UserControl { get; set; } = new UserControlExtensionExample();
-
-        public Task InitUserControl { get; set; } = Task.CompletedTask;
-
 
         public void NewMessage(AnalogyLogMessage message)
         {
