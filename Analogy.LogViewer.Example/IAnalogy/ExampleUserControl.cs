@@ -7,9 +7,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
+using Analogy.Interfaces.Factories;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
+    public class ExampleUserControlFactory : IAnalogyCustomUserControlsFactory
+    {
+        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public string Title { get; set; } = "User Control Examples";
+
+        public IEnumerable<IAnalogyCustomUserControl> UserControls { get; } = new List<IAnalogyCustomUserControl>
+            {new ExampleUserControl()};
+    }
     public class ExampleUserControl :IAnalogyCustomUserControl
     {
         public Task InitializeUserControl(Control hostingControl, IAnalogyLogger logger)
