@@ -31,7 +31,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return Task.CompletedTask;
         }
 
-        public UserControl UserControl { get; } = new ExampleUserControlUC();
+        public UserControl UserControl => new ExampleUserControlUC();
         public Guid Id { get; set; } = new Guid("ec1264aa-d503-4888-9772-572faa3f9a0c");
         public Image? SmallImage { get; set; }
         public Image? LargeImage { get; set; }
