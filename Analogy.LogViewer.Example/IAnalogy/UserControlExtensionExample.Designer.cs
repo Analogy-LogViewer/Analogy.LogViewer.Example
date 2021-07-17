@@ -32,23 +32,26 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMsg = new System.Windows.Forms.Label();
+            this.btnGneratorShow = new System.Windows.Forms.Button();
+            this.btnGeneratorHide = new System.Windows.Forms.Button();
+            this.btnGenerator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 58);
+            this.label1.Location = new System.Drawing.Point(12, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 17);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Latest Message:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 11);
+            this.label2.Location = new System.Drawing.Point(12, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 17);
+            this.label2.Size = new System.Drawing.Size(151, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Example user control.";
             // 
@@ -57,21 +60,54 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMsg.Location = new System.Drawing.Point(223, 58);
+            this.lblMsg.Location = new System.Drawing.Point(223, 72);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(446, 300);
+            this.lblMsg.Size = new System.Drawing.Size(446, 375);
             this.lblMsg.TabIndex = 2;
             this.lblMsg.Text = "N/A";
             // 
+            // btnGneratorShow
+            // 
+            this.btnGneratorShow.Location = new System.Drawing.Point(29, 132);
+            this.btnGneratorShow.Name = "btnGneratorShow";
+            this.btnGneratorShow.Size = new System.Drawing.Size(94, 29);
+            this.btnGneratorShow.TabIndex = 3;
+            this.btnGneratorShow.Text = "show plot";
+            this.btnGneratorShow.UseVisualStyleBackColor = true;
+            this.btnGneratorShow.Click += new System.EventHandler(this.btnGneratorShow_Click);
+            // 
+            // btnGeneratorHide
+            // 
+            this.btnGeneratorHide.Location = new System.Drawing.Point(31, 167);
+            this.btnGeneratorHide.Name = "btnGeneratorHide";
+            this.btnGeneratorHide.Size = new System.Drawing.Size(94, 29);
+            this.btnGeneratorHide.TabIndex = 4;
+            this.btnGeneratorHide.Text = "Hide plot";
+            this.btnGeneratorHide.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerator
+            // 
+            this.btnGenerator.Location = new System.Drawing.Point(31, 97);
+            this.btnGenerator.Name = "btnGenerator";
+            this.btnGenerator.Size = new System.Drawing.Size(94, 29);
+            this.btnGenerator.TabIndex = 5;
+            this.btnGenerator.Text = "create";
+            this.btnGenerator.UseVisualStyleBackColor = true;
+            this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
+            // 
             // UserControlExtensionExample
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnGenerator);
+            this.Controls.Add(this.btnGeneratorHide);
+            this.Controls.Add(this.btnGneratorShow);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserControlExtensionExample";
-            this.Size = new System.Drawing.Size(672, 358);
+            this.Size = new System.Drawing.Size(672, 448);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +118,8 @@ namespace Analogy.LogViewer.Example.IAnalogy
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Button btnGneratorShow;
+        private System.Windows.Forms.Button btnGeneratorHide;
+        private System.Windows.Forms.Button btnGenerator;
     }
 }
