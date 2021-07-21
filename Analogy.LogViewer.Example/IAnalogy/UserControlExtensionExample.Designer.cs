@@ -32,9 +32,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMsg = new System.Windows.Forms.Label();
-            this.btnGneratorShow = new System.Windows.Forms.Button();
-            this.btnGeneratorHide = new System.Windows.Forms.Button();
-            this.btnGenerator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,42 +63,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.lblMsg.TabIndex = 2;
             this.lblMsg.Text = "N/A";
             // 
-            // btnGneratorShow
-            // 
-            this.btnGneratorShow.Location = new System.Drawing.Point(29, 132);
-            this.btnGneratorShow.Name = "btnGneratorShow";
-            this.btnGneratorShow.Size = new System.Drawing.Size(94, 29);
-            this.btnGneratorShow.TabIndex = 3;
-            this.btnGneratorShow.Text = "show plot";
-            this.btnGneratorShow.UseVisualStyleBackColor = true;
-            this.btnGneratorShow.Click += new System.EventHandler(this.btnGneratorShow_Click);
-            // 
-            // btnGeneratorHide
-            // 
-            this.btnGeneratorHide.Location = new System.Drawing.Point(31, 167);
-            this.btnGeneratorHide.Name = "btnGeneratorHide";
-            this.btnGeneratorHide.Size = new System.Drawing.Size(94, 29);
-            this.btnGeneratorHide.TabIndex = 4;
-            this.btnGeneratorHide.Text = "Hide plot";
-            this.btnGeneratorHide.UseVisualStyleBackColor = true;
-            // 
-            // btnGenerator
-            // 
-            this.btnGenerator.Location = new System.Drawing.Point(31, 97);
-            this.btnGenerator.Name = "btnGenerator";
-            this.btnGenerator.Size = new System.Drawing.Size(94, 29);
-            this.btnGenerator.TabIndex = 5;
-            this.btnGenerator.Text = "create";
-            this.btnGenerator.UseVisualStyleBackColor = true;
-            this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
-            // 
             // UserControlExtensionExample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnGenerator);
-            this.Controls.Add(this.btnGeneratorHide);
-            this.Controls.Add(this.btnGneratorShow);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -118,8 +83,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMsg;
-        private System.Windows.Forms.Button btnGneratorShow;
-        private System.Windows.Forms.Button btnGeneratorHide;
-        private System.Windows.Forms.Button btnGenerator;
     }
 }
