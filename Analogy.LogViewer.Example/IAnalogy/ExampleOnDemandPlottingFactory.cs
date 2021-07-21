@@ -17,10 +17,12 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public ExampleOnDemandPlottingFactory()
         {
             OnDemandPlottingContainer.Instance.SetFactory(this);
+            OnDemandPlottingGenerators = new List<IAnalogyOnDemandPlotting>();
         }
 
         public void AddedOnDemandPlottingGenerator(IAnalogyOnDemandPlotting plotGenerator)
         {
+            OnDemandPlottingGenerators.Add(plotGenerator);
             OnAddedOnDemandPlottingGenerator?.Invoke(this, plotGenerator);
         }
     }
