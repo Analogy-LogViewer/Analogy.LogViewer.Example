@@ -67,5 +67,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             Interactor.ClearAllData(Id);
         }
+
+        public void HidePlot()
+        {
+            Interactor.ClosePlot(Id);
+        }
     }
 }

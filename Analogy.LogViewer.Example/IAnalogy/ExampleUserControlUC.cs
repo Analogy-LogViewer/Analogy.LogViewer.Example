@@ -33,6 +33,12 @@ namespace Analogy.LogViewer.Example.IAnalogy
 
         private void btnGeneratorHide_Click(object sender, EventArgs e)
         {
+            p.HidePlot();
+        }
+
+        private void btnStopPlotting_Click(object sender, EventArgs e)
+        {
+            p.StopPlotting();
 
         }
     }

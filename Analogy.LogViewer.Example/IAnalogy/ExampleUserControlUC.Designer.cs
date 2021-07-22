@@ -33,6 +33,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.btnGenerator = new System.Windows.Forms.Button();
             this.btnGeneratorHide = new System.Windows.Forms.Button();
             this.btnGneratorShow = new System.Windows.Forms.Button();
+            this.btnStopPlotting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +57,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             // 
             // btnGeneratorHide
             // 
-            this.btnGeneratorHide.Location = new System.Drawing.Point(12, 132);
+            this.btnGeneratorHide.Location = new System.Drawing.Point(6, 162);
             this.btnGeneratorHide.Name = "btnGeneratorHide";
             this.btnGeneratorHide.Size = new System.Drawing.Size(94, 29);
             this.btnGeneratorHide.TabIndex = 7;
@@ -68,16 +69,27 @@ namespace Analogy.LogViewer.Example.IAnalogy
             // 
             this.btnGneratorShow.Location = new System.Drawing.Point(12, 97);
             this.btnGneratorShow.Name = "btnGneratorShow";
-            this.btnGneratorShow.Size = new System.Drawing.Size(94, 29);
+            this.btnGneratorShow.Size = new System.Drawing.Size(131, 29);
             this.btnGneratorShow.TabIndex = 6;
-            this.btnGneratorShow.Text = "show plot";
+            this.btnGneratorShow.Text = "start plotting";
             this.btnGneratorShow.UseVisualStyleBackColor = true;
             this.btnGneratorShow.Click += new System.EventHandler(this.btnGneratorShow_Click);
+            // 
+            // btnStopPlotting
+            // 
+            this.btnStopPlotting.Location = new System.Drawing.Point(12, 132);
+            this.btnStopPlotting.Name = "btnStopPlotting";
+            this.btnStopPlotting.Size = new System.Drawing.Size(131, 29);
+            this.btnStopPlotting.TabIndex = 9;
+            this.btnStopPlotting.Text = "stop plotting";
+            this.btnStopPlotting.UseVisualStyleBackColor = true;
+            this.btnStopPlotting.Click += new System.EventHandler(this.btnStopPlotting_Click);
             // 
             // ExampleUserControlUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnStopPlotting);
             this.Controls.Add(this.btnGenerator);
             this.Controls.Add(this.btnGeneratorHide);
             this.Controls.Add(this.btnGneratorShow);
@@ -96,5 +108,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         private System.Windows.Forms.Button btnGenerator;
         private System.Windows.Forms.Button btnGeneratorHide;
         private System.Windows.Forms.Button btnGneratorShow;
+        private System.Windows.Forms.Button btnStopPlotting;
     }
 }
