@@ -34,6 +34,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.btnGeneratorHide = new System.Windows.Forms.Button();
             this.btnGneratorShow = new System.Windows.Forms.Button();
             this.btnStopPlotting = new System.Windows.Forms.Button();
+            this.btnShowPlot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,17 +50,17 @@ namespace Analogy.LogViewer.Example.IAnalogy
             // 
             this.btnGenerator.Location = new System.Drawing.Point(12, 62);
             this.btnGenerator.Name = "btnGenerator";
-            this.btnGenerator.Size = new System.Drawing.Size(94, 29);
+            this.btnGenerator.Size = new System.Drawing.Size(131, 29);
             this.btnGenerator.TabIndex = 8;
-            this.btnGenerator.Text = "create";
+            this.btnGenerator.Text = "Create Plot";
             this.btnGenerator.UseVisualStyleBackColor = true;
             this.btnGenerator.Click += new System.EventHandler(this.btnGenerator_Click);
             // 
             // btnGeneratorHide
             // 
-            this.btnGeneratorHide.Location = new System.Drawing.Point(6, 162);
+            this.btnGeneratorHide.Location = new System.Drawing.Point(12, 132);
             this.btnGeneratorHide.Name = "btnGeneratorHide";
-            this.btnGeneratorHide.Size = new System.Drawing.Size(94, 29);
+            this.btnGeneratorHide.Size = new System.Drawing.Size(131, 29);
             this.btnGeneratorHide.TabIndex = 7;
             this.btnGeneratorHide.Text = "Hide plot";
             this.btnGeneratorHide.UseVisualStyleBackColor = true;
@@ -67,7 +68,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             // 
             // btnGneratorShow
             // 
-            this.btnGneratorShow.Location = new System.Drawing.Point(12, 97);
+            this.btnGneratorShow.Location = new System.Drawing.Point(12, 200);
             this.btnGneratorShow.Name = "btnGneratorShow";
             this.btnGneratorShow.Size = new System.Drawing.Size(131, 29);
             this.btnGneratorShow.TabIndex = 6;
@@ -77,7 +78,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             // 
             // btnStopPlotting
             // 
-            this.btnStopPlotting.Location = new System.Drawing.Point(12, 132);
+            this.btnStopPlotting.Location = new System.Drawing.Point(12, 235);
             this.btnStopPlotting.Name = "btnStopPlotting";
             this.btnStopPlotting.Size = new System.Drawing.Size(131, 29);
             this.btnStopPlotting.TabIndex = 9;
@@ -85,10 +86,21 @@ namespace Analogy.LogViewer.Example.IAnalogy
             this.btnStopPlotting.UseVisualStyleBackColor = true;
             this.btnStopPlotting.Click += new System.EventHandler(this.btnStopPlotting_Click);
             // 
+            // btnShowPlot
+            // 
+            this.btnShowPlot.Location = new System.Drawing.Point(12, 97);
+            this.btnShowPlot.Name = "btnShowPlot";
+            this.btnShowPlot.Size = new System.Drawing.Size(131, 29);
+            this.btnShowPlot.TabIndex = 10;
+            this.btnShowPlot.Text = "Show Plot";
+            this.btnShowPlot.UseVisualStyleBackColor = true;
+            this.btnShowPlot.Click += new System.EventHandler(this.btnShowPlot_Click);
+            // 
             // ExampleUserControlUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnShowPlot);
             this.Controls.Add(this.btnStopPlotting);
             this.Controls.Add(this.btnGenerator);
             this.Controls.Add(this.btnGeneratorHide);
@@ -109,5 +121,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         private System.Windows.Forms.Button btnGeneratorHide;
         private System.Windows.Forms.Button btnGneratorShow;
         private System.Windows.Forms.Button btnStopPlotting;
+        private System.Windows.Forms.Button btnShowPlot;
     }
 }

@@ -23,7 +23,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             p = new ExampleOnDemandPlotting();
             OnDemandPlottingContainer.Instance.AddOnDemandPlotting(p);
-            p.ShowPlot();
         }
 
         private void btnGneratorShow_Click(object sender, EventArgs e)
@@ -40,6 +39,11 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             p.StopPlotting();
 
+        }
+
+        private void btnShowPlot_Click(object sender, EventArgs e)
+        {
+            p.ShowPlot();
         }
     }
 }
