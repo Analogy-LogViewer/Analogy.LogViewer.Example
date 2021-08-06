@@ -15,7 +15,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public string Title { get; set; } = "Example real time plotting";
         private Timer simulateData;
         int counter = 0;
-        public Task InitializePlottingAsync(IAnalogyLogger logger)
+        public Task InitializePlottingAsync(IAnalogyPlottingInteractor uiInteractor,IAnalogyLogger logger)
         {
             simulateData = new Timer();
             simulateData.Interval = 1;
@@ -23,9 +23,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             simulateData.Enabled = false;
             return Task.CompletedTask;
         }
-
-
-
+        
         public Task StartPlotting()
         {
             simulateData.Enabled = true;
