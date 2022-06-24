@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public class ExampleDownloadInformation : Analogy.LogViewer.Template.AnalogyDownloadInformation
+    public class ExampleDownloadInformation : Template.AnalogyDownloadInformation
     {
-        public override Guid FactoryId { get; set; } = Analogy.LogViewer.Example.PrimaryFactory.Id;
+        public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public override string Name { get; set; } = "Analogy Examples";
         public override bool IsUpdateAvailable { get; set; }
         public override string? DownloadURL { get; set; }

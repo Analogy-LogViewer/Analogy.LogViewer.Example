@@ -1,13 +1,12 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Factories;
-using Analogy.LogViewer.Example.IAnalogy;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Analogy.Interfaces.Factories;
 
-namespace Analogy.LogViewer.Example
+namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExtensionFactoryExample : IAnalogyExtensionsFactory
     {

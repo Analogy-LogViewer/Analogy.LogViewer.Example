@@ -1,10 +1,9 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.Factories;
-using Analogy.LogViewer.Template;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Analogy.Interfaces;
+using Analogy.LogViewer.Template;
 
-namespace Analogy.LogViewer.Example
+namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleDataProviderFactory : DataProvidersFactory
     {
@@ -19,6 +18,7 @@ namespace Analogy.LogViewer.Example
             //add 2 "offline data providers"
             new OfflineExampleDataProvider("Data Provider 1", new Guid("2BFC1602-17EF-447D-8DDC-8A00F46C1CE1")),
             new OfflineExampleDataProvider("Data Provider 2", new Guid("B22D4BD1-10D7-460B-ADCE-849E73BCA91D")),
+            new ServerSidePagingProvider()
 
         };
     }

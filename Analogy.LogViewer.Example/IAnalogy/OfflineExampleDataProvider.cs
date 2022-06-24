@@ -1,17 +1,16 @@
-﻿using Analogy.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Analogy.Interfaces;
 using Analogy.LogViewer.Example.Properties;
-using Analogy.LogViewer.Template;
 
-namespace Analogy.LogViewer.Example
+namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OfflineExampleDataProvider : Analogy.LogViewer.Template.OfflineDataProvider
+    public sealed class OfflineExampleDataProvider : Template.OfflineDataProvider
     {
         public override Guid Id { get; set; }
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;

@@ -1,16 +1,16 @@
-﻿using Analogy.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Analogy.Interfaces;
 using Timer = System.Timers.Timer;
 
-namespace Analogy.LogViewer.Example
+namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OnlineExampleDataProvider : Analogy.LogViewer.Template.OnlineDataProvider
+    public sealed class OnlineExampleDataProvider : Template.OnlineDataProvider
     {
         public override string? OptionalTitle { get; set; }
         public override Guid Id { get; set; }
@@ -23,7 +23,6 @@ namespace Analogy.LogViewer.Example
         readonly Array _values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly List<string> _processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private readonly string _prefixMessage;
-        private readonly Random _rnd = new Random();
 
         public override IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
         {
@@ -31,7 +30,10 @@ namespace Analogy.LogViewer.Example
         }
 
         public override (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
-            => logMessage.Level == AnalogyLogLevel.Unknown ? (Color.FromArgb(_rnd.Next(256), _rnd.Next(256), _rnd.Next(256)), Color.FromArgb(_rnd.Next(256), _rnd.Next(256), _rnd.Next(256))) : (Color.Empty, Color.Empty);
+            => logMessage.Level == AnalogyLogLevel.Unknown
+                ? (Color.FromArgb(_random.Next(256), _random.Next(256), _random.Next(256)),
+                    Color.FromArgb(_random.Next(256), _random.Next(256), _random.Next(256)))
+                : (Color.Empty, Color.Empty);
         public OnlineExampleDataProvider(string prefix, Guid guid)
         {
             _prefixMessage = prefix;

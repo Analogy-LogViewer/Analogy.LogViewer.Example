@@ -1,11 +1,10 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.Factories;
-using Analogy.LogViewer.Example.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Analogy.Interfaces;
+using Analogy.LogViewer.Example.Properties;
 
-namespace Analogy.LogViewer.Example
+namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class PrimaryFactory : Analogy.LogViewer.Template.PrimaryFactory
     {
