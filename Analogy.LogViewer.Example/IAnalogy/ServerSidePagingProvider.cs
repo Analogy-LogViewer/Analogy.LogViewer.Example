@@ -46,6 +46,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
 
             var messages = new List<AnalogyLogMessage>();
+            return Task.FromResult(messages.AsEnumerable());
         }
 
 
