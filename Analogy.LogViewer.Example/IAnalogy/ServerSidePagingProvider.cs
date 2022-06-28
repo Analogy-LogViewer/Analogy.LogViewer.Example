@@ -19,25 +19,33 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public ServerSidePagingProvider()
         {
             messages = new List<AnalogyLogMessage>();
-            for (int i = 0; i < 300000; i++)
+            Task.Run(() =>
             {
-                AnalogyLogLevel randomLevel = (AnalogyLogLevel)_values.GetValue(_random.Next(_values.Length))!;
-                string randomProcess = _processes[_random.Next(_processes.Count)];
-                AnalogyLogMessage m = new AnalogyLogMessage
-                {
-                    Text = $"Generated message #{i}" + string.Join(Environment.NewLine,
-                        Enumerable.Range(0, _random.Next(1, 5)).Select(i => $" row {i}")),
-                    Level = randomLevel,
-                    Class = AnalogyLogClass.General,
-                    Source = "Example",
-                    User = Environment.UserName,
-                    Module = randomProcess,
-                    MachineName = Environment.MachineName,
-                    ThreadId = Thread.CurrentThread.ManagedThreadId,
+               var  msg = new List<AnalogyLogMessage>();
 
-                };
-                messages.Add(m);
-            }
+                for (int i = 0; i < 300000; i++)
+                {
+                    AnalogyLogLevel randomLevel = (AnalogyLogLevel)_values.GetValue(_random.Next(_values.Length))!;
+                    string randomProcess = _processes[_random.Next(_processes.Count)];
+                    AnalogyLogMessage m = new AnalogyLogMessage
+                    {
+                        Text = $"Generated message #{i}" + string.Join(Environment.NewLine,
+                            Enumerable.Range(0, _random.Next(1, 5)).Select(i => $" row {i}")),
+                        Level = randomLevel,
+                        Class = AnalogyLogClass.General,
+                        Source = "Example",
+                        User = Environment.UserName,
+                        Module = randomProcess,
+                        MachineName = Environment.MachineName,
+                        ThreadId = Thread.CurrentThread.ManagedThreadId,
+
+                    };
+                    msg.Add(m);
+                }
+
+                messages = msg;
+            });
+            
         }
 
         public override Task<IEnumerable<AnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria, CancellationToken token,
