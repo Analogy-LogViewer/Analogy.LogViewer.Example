@@ -31,10 +31,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
             OptionalTitle = $"Analogy Example:  Offline Data Provider ({prefix})";
         }
 
-        public override  Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override  Task InitializeDataProvider(IAnalogyLogger logger)
         {
             //do some initialization for this provider
-            return base.InitializeDataProviderAsync(logger);
+            return base.InitializeDataProvider(logger);
         }
 
         public override  void MessageOpened(AnalogyLogMessage message)

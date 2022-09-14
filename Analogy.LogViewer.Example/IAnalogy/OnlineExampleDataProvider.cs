@@ -42,9 +42,9 @@ namespace Analogy.LogViewer.Example.IAnalogy
             _simulateOnlineMessages = new Timer(100);
 
         }
-        public override async Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override async Task InitializeDataProvider(IAnalogyLogger logger)
         {
-            await base.InitializeDataProviderAsync(logger);
+            await base.InitializeDataProvider(logger);
 
             _simulateOnlineMessages.Elapsed += (s, e) =>
             {
