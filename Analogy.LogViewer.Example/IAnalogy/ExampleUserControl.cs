@@ -21,7 +21,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
     }
     public class ExampleUserControl :IAnalogyCustomUserControl
     {
-        public Task InitializeUserControl(Control hostingControl, ILogRawSQL rawSQLInteractor, IAnalogyLogger logger)
+        public Task InitializeUserControl(Control hostingControl, IAnalogyLogger logger)
         {
             return Task.CompletedTask;
         }
