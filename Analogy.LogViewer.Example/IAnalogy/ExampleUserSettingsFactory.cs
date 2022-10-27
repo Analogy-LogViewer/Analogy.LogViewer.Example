@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleUserSettingsFactory:TemplateUserSettingsFactory
     {
-        public override Guid FactoryId { get; set; }
+        public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public override Guid Id { get; set; } = new Guid("fe9d38dc-dd31-4f15-8aee-acb7f7e9085b");
         public override UserControl DataProviderSettings { get; set; }
         public override string Title { get; set; } = "Example User Settings";
