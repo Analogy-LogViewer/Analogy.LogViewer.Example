@@ -82,5 +82,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
             Disconnected(this, new AnalogyDataSourceDisconnectedArgs("user disconnected", Environment.MachineName, Id));
             return Task.CompletedTask;
         }
+
+        public override Task ShutDown()
+        {
+            return Task.CompletedTask;
+        }
     }
 }
