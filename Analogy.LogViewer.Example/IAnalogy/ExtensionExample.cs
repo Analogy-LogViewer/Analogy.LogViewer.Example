@@ -31,7 +31,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             //
         }
 
-        public object GetValueForCellColumn(AnalogyLogMessage message, string columnName)
+        public object GetValueForCellColumn(IAnalogyLogMessage message, string columnName)
         {
             return "None";
         }
@@ -73,12 +73,12 @@ namespace Analogy.LogViewer.Example.IAnalogy
             UserControl = new UserControlExtensionExample();
         }
         
-        public void NewMessage(AnalogyLogMessage message)
+        public void NewMessage(IAnalogyLogMessage message)
         {
             (UserControl as UserControlExtensionExample)?.UserClickMessage(message);
         }
 
-        public void NewMessages(List<AnalogyLogMessage> messages)
+        public void NewMessages(List<IAnalogyLogMessage> messages)
         {
             //
         }

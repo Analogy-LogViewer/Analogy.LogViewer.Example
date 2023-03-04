@@ -10,6 +10,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
             InitializeComponent();
         }
 
-        public void UserClickMessage(AnalogyLogMessage msg) => lblMsg.Text = msg.Text;
+        public void UserClickMessage(IAnalogyLogMessage msg) => lblMsg.Text = msg.Text;
     }
 }

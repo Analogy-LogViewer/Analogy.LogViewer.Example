@@ -15,13 +15,13 @@ namespace Analogy.LogViewer.Example.IAnalogy
         readonly Array _values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly Random _random = new Random();
         private readonly List<string> _processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
-        private List<AnalogyLogMessage> messages;
+        private List<IAnalogyLogMessage> messages;
         public ServerSidePagingProvider()
         {
-            messages = new List<AnalogyLogMessage>();
+            messages = new List<IAnalogyLogMessage>();
             Task.Run(() =>
             {
-               var  msg = new List<AnalogyLogMessage>();
+               var  msg = new List<IAnalogyLogMessage>();
 
                 for (int i = 0; i < 300000; i++)
                 {
@@ -48,7 +48,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             
         }
 
-        public override Task<IEnumerable<AnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria, CancellationToken token,
+        public override Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler)
         {
             var filters = messages.Where(m =>
@@ -111,9 +111,9 @@ namespace Analogy.LogViewer.Example.IAnalogy
                 if (dynamicColumn.FilterType == AnalogyColumnFilterType.Include)
                 {
 
-                    filters = filters.Where(m => m.AdditionalInformation != null &&
-                                                 m.AdditionalInformation.ContainsKey(dynamicColumn.ColumnName) &&
-                                                 m.AdditionalInformation[dynamicColumn.ColumnName]
+                    filters = filters.Where(m => m.AdditionalProperties != null &&
+                                                 m.AdditionalProperties.ContainsKey(dynamicColumn.ColumnName) &&
+                                                 m.AdditionalProperties[dynamicColumn.ColumnName]
                                                      .Equals(dynamicColumn.FilterValue,
                                                          StringComparison.InvariantCultureIgnoreCase));
                 }
@@ -121,15 +121,15 @@ namespace Analogy.LogViewer.Example.IAnalogy
                 {
                     filters = filters.Where(m =>
                     {
-                        if (m.AdditionalInformation == null)
+                        if (m.AdditionalProperties == null)
                         {
                             return true;
 
                         }
 
                         return
-                            !m.AdditionalInformation.ContainsKey(dynamicColumn.ColumnName) ||
-                            !m.AdditionalInformation[dynamicColumn.ColumnName].Contains(dynamicColumn.FilterValue);
+                            !m.AdditionalProperties.ContainsKey(dynamicColumn.ColumnName) ||
+                            !m.AdditionalProperties[dynamicColumn.ColumnName].Contains(dynamicColumn.FilterValue);
                     });
                 }
             }

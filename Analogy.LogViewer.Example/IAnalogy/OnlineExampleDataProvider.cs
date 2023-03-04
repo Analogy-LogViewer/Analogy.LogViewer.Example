@@ -61,10 +61,9 @@ namespace Analogy.LogViewer.Example.IAnalogy
                     Module = randomProcess,
                     MachineName = Environment.MachineName,
                     ThreadId = Thread.CurrentThread.ManagedThreadId,
-                    AdditionalInformation = new Dictionary<string, string> { { "Random Column", _random.Next(0, 10).ToString() }, { "Random Column 2", _random.Next(0, 10).ToString() } }
-
                 };
-
+                m.AddOrReplaceAdditionalProperty("Random Column", _random.Next(0, 10).ToString());
+                m.AddOrReplaceAdditionalProperty("Random Column 2", _random.Next(0, 10).ToString());
                 MessageReady(this, new AnalogyLogMessageArgs(m, Environment.MachineName, "Example", Id));
 
             };

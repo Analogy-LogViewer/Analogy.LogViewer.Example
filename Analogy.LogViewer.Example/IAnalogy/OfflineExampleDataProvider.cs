@@ -37,14 +37,14 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return base.InitializeDataProvider(logger);
         }
 
-        public override  void MessageOpened(AnalogyLogMessage message)
+        public override  void MessageOpened(IAnalogyLogMessage message)
         {
             //nop
         }
 
-        public override Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
+        public override Task<IEnumerable<IAnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
-            return Task.FromResult(new List<AnalogyLogMessage>(0).AsEnumerable());
+            return Task.FromResult(new List<IAnalogyLogMessage>(0).AsEnumerable());
         }
 
         protected override List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
@@ -52,7 +52,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return base.GetSupportedFilesInternal(dirInfo, recursive);
         }
 
-        public override Task SaveAsync(List<AnalogyLogMessage> messages, string fileName)
+        public override Task SaveAsync(List<IAnalogyLogMessage> messages, string fileName)
         {
             return Task.CompletedTask;
         }

@@ -8,7 +8,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-		<Version>3.6.2</Version>
+		<Version>3.8.0</Version>
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -26,13 +26,12 @@
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-	
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="3.6.0" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.6.0" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="3.6.0" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="3.8.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.8.0" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="3.8.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -42,6 +41,12 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' or '$(TargetFramework)' == 'net471' ">
+		<PackageReference Include="PolySharp" Version="1.12.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
