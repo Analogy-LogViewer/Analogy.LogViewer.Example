@@ -37,9 +37,19 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return base.InitializeDataProvider(logger);
         }
 
-        public override  void MessageOpened(IAnalogyLogMessage message)
+        public override void MessageOpened(IAnalogyLogMessage message)
         {
-            //nop
+            base.MessageOpened(message);
+        }
+
+        public override IEnumerable<string> HideAdditionalColumns()
+        {
+            return base.HideAdditionalColumns();
+        }
+
+        public override IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns()
+        {
+            return base.HideExistingColumns();
         }
 
         public override Task<IEnumerable<IAnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
