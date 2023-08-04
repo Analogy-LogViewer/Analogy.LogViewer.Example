@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,9 +15,9 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public Guid Id { get; } = new Guid("bb38ccb7-8625-4b22-a33c-50a3cbd1e741");
         public event EventHandler<(Guid Id, IEnumerable<AnalogyPlottingPointData> PointsData)> OnNewPointsData;
         private Timer simulateData;
-        int counter = 0;
+        int counter;
         private IAnalogyOnDemandPlottingInteractor Interactor { get; set; }
-        public Task InitializeOnDemandPlotting(IAnalogyOnDemandPlottingInteractor onDemandPlottingInteractor, IAnalogyLogger logger)
+        public Task InitializeOnDemandPlotting(IAnalogyOnDemandPlottingInteractor onDemandPlottingInteractor, ILogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             Interactor = onDemandPlottingInteractor;

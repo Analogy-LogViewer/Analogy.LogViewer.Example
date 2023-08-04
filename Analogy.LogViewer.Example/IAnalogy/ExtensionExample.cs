@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -64,11 +65,11 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public string Description { get; set; } = "Example how to use extension User Control";
         private UserControl UserControl { get; set; }
 
-        Task IAnalogyExtensionUserControl.InitializeUserControl(Control hostingControl, Guid logWindowsId, IAnalogyLogger logger)
+        Task IAnalogyExtensionUserControl.InitializeUserControl(Control hostingControl, Guid logWindowsId, ILogger logger)
         {
             return Task.CompletedTask;
         }
-        public UserControl CreateUserControl(Guid logWindowsId,IAnalogyLogger logger)
+        public UserControl CreateUserControl(Guid logWindowsId,ILogger logger)
         {
             UserControl = new UserControlExtensionExample();
             return UserControl;

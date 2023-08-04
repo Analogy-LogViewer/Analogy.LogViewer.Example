@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Analogy.Interfaces;
+using Microsoft.Extensions.Logging;
 using Timer = System.Timers.Timer;
 
 namespace Analogy.LogViewer.Example.IAnalogy
@@ -42,7 +43,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             _simulateOnlineMessages = new Timer(100);
 
         }
-        public override async Task InitializeDataProvider(IAnalogyLogger logger)
+        public override async Task InitializeDataProvider(ILogger logger)
         {
             await base.InitializeDataProvider(logger);
 

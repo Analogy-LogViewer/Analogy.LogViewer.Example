@@ -9,6 +9,7 @@ using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Example.Properties;
 using Analogy.LogViewer.Template;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -25,7 +26,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Example tooltip", "some content",
             "footer/title", Resources.Analogy_image_16x16, Resources.Analogy_image_32x32);
 
-        public override void CreateUserControl(IAnalogyLogger logger)
+        public override void CreateUserControl(ILogger logger)
         {
             DataProviderSettings = new UserControl();
         }

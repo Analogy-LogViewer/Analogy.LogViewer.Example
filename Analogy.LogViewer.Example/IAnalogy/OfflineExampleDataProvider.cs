@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Analogy.Interfaces;
 using Analogy.LogViewer.Example.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -31,7 +32,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             OptionalTitle = $"Analogy Example:  Offline Data Provider ({prefix})";
         }
 
-        public override  Task InitializeDataProvider(IAnalogyLogger logger)
+        public override  Task InitializeDataProvider(ILogger logger)
         {
             //do some initialization for this provider
             return base.InitializeDataProvider(logger);

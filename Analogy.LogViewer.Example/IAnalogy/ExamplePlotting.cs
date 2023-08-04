@@ -1,5 +1,6 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,8 +16,8 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Example real time plotting";
         private Timer simulateData;
-        int counter = 0;
-        public Task InitializePlotting(IAnalogyPlottingInteractor uiInteractor,IAnalogyLogger logger)
+        int counter;
+        public Task InitializePlotting(IAnalogyPlottingInteractor uiInteractor, ILogger logger)
         {
             simulateData = new Timer();
             simulateData.Interval = 1;
@@ -24,7 +25,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             simulateData.Enabled = false;
             return Task.CompletedTask;
         }
-        
+
         public Task StartPlotting()
         {
             simulateData.Enabled = true;

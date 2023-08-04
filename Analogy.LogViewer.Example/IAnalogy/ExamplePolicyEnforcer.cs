@@ -2,6 +2,6 @@
 {
     public class ExamplePolicyEnforcer : Template.AnalogyPolicyEnforcer
     {
-        public override bool DisableUpdates { get; set; } = false;
+        public override bool DisableUpdates { get; set; }
     }
 }

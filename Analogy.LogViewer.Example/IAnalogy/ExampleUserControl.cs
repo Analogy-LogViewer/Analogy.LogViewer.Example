@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -21,7 +22,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
     }
     public class ExampleUserControl :IAnalogyCustomUserControl
     {
-        public Task InitializeUserControl(Control hostingControl, IAnalogyLogger logger)
+        public Task InitializeUserControl(Control hostingControl, ILogger logger)
         {
             return Task.CompletedTask;
         }
