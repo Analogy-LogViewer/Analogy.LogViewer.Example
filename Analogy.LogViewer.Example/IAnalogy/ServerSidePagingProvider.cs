@@ -12,6 +12,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
     public class ServerSidePagingProvider : Template.IAnalogy.AnalogyProviderSidePagingProvider
     {
         public override Guid Id { get; set; } = new Guid("877808EC-A3DC-4451-986F-6A7569CDE660");
+        public override string? OptionalTitle { get; set; } = "Example Server Side Paging";
         readonly Array _values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly Random _random = new Random();
         private readonly List<string> _processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
