@@ -22,9 +22,9 @@ namespace Analogy.LogViewer.Example.IAnalogy
             messages = new List<IAnalogyLogMessage>();
             Task.Run(() =>
             {
-               var  msg = new List<IAnalogyLogMessage>();
+                var msg = new List<IAnalogyLogMessage>();
 
-                for (int i = 0; i < 300000; i++)
+                for (int i = 0; i < 30000; i++)
                 {
                     AnalogyLogLevel randomLevel = (AnalogyLogLevel)_values.GetValue(_random.Next(_values.Length))!;
                     string randomProcess = _processes[_random.Next(_processes.Count)];
@@ -46,65 +46,86 @@ namespace Analogy.LogViewer.Example.IAnalogy
 
                 messages = msg;
             });
-            
+
         }
 
         public override Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler)
         {
+
             var filters = messages.Where(m =>
-                m.Date >= filterCriteria.StartTime && m.Date <= filterCriteria.EndTime);
+                m.Date >= (filterCriteria.StartTime ?? DateTime.MinValue)
+                && m.Date <= (filterCriteria.EndTime ?? DateTime.MaxValue));
 
-            if (filterCriteria.IncludeText.Any())
+            foreach (var include in filterCriteria.IncludeText)
             {
-                filters = filters.Where(m =>
-                    filterCriteria.IncludeText.Contains(m.Text, StringComparer.InvariantCultureIgnoreCase));
-
+                if (string.IsNullOrEmpty(include))
+                {
+                    continue;
+                }
+                filters = filters.Where(m => m.Text is not null && Contains(m.Text, include, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.ExcludeText.Any())
+            foreach (var exclude in filterCriteria.ExcludeText)
             {
-                filters = filters.Where(m => !filterCriteria.ExcludeText.Contains(m.Text, StringComparer.InvariantCultureIgnoreCase));
+                if (string.IsNullOrEmpty(exclude))
+                {
+                    continue;
+                }
+
+                filters = filters.Where(m => m.Text is not null &&
+                                             !Contains(m.Text, exclude, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.IncludeSources.Any())
+            foreach (var include in filterCriteria.IncludeSources)
             {
-                filters = filters.Where(m =>
-                    filterCriteria.IncludeSources.Contains(m.Source, StringComparer.InvariantCultureIgnoreCase));
+                if (string.IsNullOrEmpty(include))
+                {
+                    continue;
+                }
 
+                filters = filters.Where(m => m.Source is not null && Contains(m.Source, include, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.ExcludeSources.Any())
+            foreach (var exclude in filterCriteria.ExcludeSources)
             {
-                filters = filters.Where(m => !filterCriteria.ExcludeSources.Contains(m.Source, StringComparer.InvariantCultureIgnoreCase));
+                if (string.IsNullOrEmpty(exclude))
+                {
+                    continue;
+                }
+
+                filters = filters.Where(m => m.Source is not null &&
+                                             !Contains(m.Source, exclude, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.IncludeSources.Any())
+            foreach (var include in filterCriteria.IncludeModules)
             {
-                filters = filters.Where(m =>
-                    filterCriteria.IncludeSources.Contains(m.Source, StringComparer.InvariantCultureIgnoreCase));
+                if (string.IsNullOrEmpty(include))
+                {
+                    continue;
+                }
 
+                filters = filters.Where(m => m.Module is not null && Contains(m.Module, include, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.ExcludeModules.Any())
+            foreach (var exclude in filterCriteria.ExcludeModules)
             {
-                filters = filters.Where(m => !filterCriteria.ExcludeModules.Contains(m.Module, StringComparer.InvariantCultureIgnoreCase));
+                if (string.IsNullOrEmpty(exclude))
+                {
+                    continue;
+                }
+
+                filters = filters.Where(m => m.Module is not null &&
+                                             !Contains(m.Module, exclude, StringComparison.InvariantCultureIgnoreCase));
             }
 
-            if (filterCriteria.IncludeSources.Any())
+            foreach (var include in filterCriteria.IncludeLevels)
             {
-                filters = filters.Where(m =>
-                    filterCriteria.IncludeSources.Contains(m.Source, StringComparer.InvariantCultureIgnoreCase));
-
+                filters = filters.Where(m => m.Level ==include);
             }
-
-            if (filterCriteria.IncludeLevels.Any())
+            foreach (var exclude in filterCriteria.ExcludeLevels)
             {
-                filters = filters.Where(m => !filterCriteria.IncludeLevels.Contains(m.Level));
-            }
-            if (filterCriteria.ExcludeLevels.Any())
-            {
-                filters = filters.Where(m => !filterCriteria.ExcludeLevels.Contains(m.Level));
+                filters = filters.Where(m => m.Level != exclude);
             }
 
             foreach (AnalogyColumnFilter dynamicColumn in filterCriteria.DynamicColumns)
@@ -134,10 +155,15 @@ namespace Analogy.LogViewer.Example.IAnalogy
                     });
                 }
             }
-
-            return Task.FromResult(filters.Skip((pageNumber - 1) * pageCount).Take(pageCount));
+            var result = filters.Skip((pageNumber - 1) * pageCount).Take(pageCount).ToList();
+            messagesHandler.AppendMessages(result, OptionalTitle ?? "Example ");
+            return Task.FromResult(result.AsEnumerable());
         }
 
+        private static bool Contains(string source, string toCheck, StringComparison comp)
+        {
+            return string.IsNullOrEmpty(toCheck) || (!string.IsNullOrEmpty(source) && source.IndexOf(toCheck, comp) >= 0);
+        }
 
     }
 }
