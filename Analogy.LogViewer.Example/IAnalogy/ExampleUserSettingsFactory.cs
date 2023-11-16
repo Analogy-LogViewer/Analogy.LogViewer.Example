@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Example.Properties;
+using Analogy.LogViewer.Template;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.LogViewer.Example.Properties;
-using Analogy.LogViewer.Template;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -21,8 +21,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override string Title { get; set; } = "Example User Settings";
         public override Image? SmallImage { get; set; } = Resources.Analogy_image_16x16;
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;
-
-
         public override AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Example tooltip", "some content",
             "footer/title", Resources.Analogy_image_16x16, Resources.Analogy_image_32x32);
 
@@ -35,7 +33,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             return Task.CompletedTask;
         }
-
-       
     }
 }

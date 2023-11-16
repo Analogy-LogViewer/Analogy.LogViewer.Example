@@ -38,7 +38,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         private void btnStopPlotting_Click(object sender, EventArgs e)
         {
             p.StopPlotting();
-
         }
 
         private void btnShowPlot_Click(object sender, EventArgs e)

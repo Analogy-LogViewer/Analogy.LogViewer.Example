@@ -4,7 +4,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleAnalogyImages : AnalogyImages
     {
-        
     }
 }
-

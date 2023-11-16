@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Analogy.Interfaces;
+﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -15,8 +15,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public string Title { get; set; } = "Extension Example";
         public IEnumerable<IAnalogyExtension> Extensions { get; } = new List<IAnalogyExtension> { new ExtensionInPlaceExample(), new ExtensionUserControlExample() };
     }
-
-
     public class ExtensionInPlaceExample : IAnalogyExtensionInPlace
     {
         public Guid Id { get; set; } = new Guid("8F66A278-CC9C-4643-8045-165572FF17D4");
@@ -51,9 +49,8 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             //
         }
-
-
     }
+
     public class ExtensionUserControlExample : IAnalogyExtensionUserControl
     {
         public Guid Id { get; set; } = new Guid("34c45425-8acd-4f8e-b901-d234297fe3ec");
@@ -69,15 +66,18 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             return Task.CompletedTask;
         }
-        public UserControl CreateUserControl(Guid logWindowsId,ILogger logger)
+
+        public UserControl CreateUserControl(Guid logWindowsId, ILogger logger)
         {
             UserControl = new UserControlExtensionExample();
             return UserControl;
         }
+
         public UserControl GetUserControl(Guid logWindowsId)
         {
             return UserControl;
         }
+
         public void NewMessage(IAnalogyLogMessage message, Guid logWindowsId)
         {
             (UserControl as UserControlExtensionExample)?.UserClickMessage(message);
@@ -87,8 +87,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             //
         }
-
-
     }
-
 }

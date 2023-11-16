@@ -11,11 +11,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleOnDemandPlotting : IAnalogyOnDemandPlotting
     {
-
         public Guid Id { get; } = new Guid("bb38ccb7-8625-4b22-a33c-50a3cbd1e741");
         public event EventHandler<(Guid Id, IEnumerable<AnalogyPlottingPointData> PointsData)> OnNewPointsData;
         private Timer simulateData;
-        int counter;
+        private int counter;
         private IAnalogyOnDemandPlottingInteractor Interactor { get; set; }
         public Task InitializeOnDemandPlotting(IAnalogyOnDemandPlottingInteractor onDemandPlottingInteractor, ILogger logger)
         {
@@ -28,7 +27,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
             return Task.CompletedTask;
         }
 
-
         private void SimulateData_Tick(object sender, EventArgs e)
         {
             var now = DateTime.Now;
@@ -39,8 +37,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 
             counter++;
         }
-
-        double GenerateValue(double x) { return Math.Sin(x / 1000.0) * 3 * x + x / 2 + 5; }
+        private double GenerateValue(double x) { return Math.Sin(x / 1000.0) * 3 * x + x / 2 + 5; }
 
         public void StartPlotting() => simulateData.Enabled = true;
 
@@ -50,6 +47,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             Interactor.ShowPlot(Id, "Example", AnalogyOnDemandPlottingStartupType.TabbedWindow);
         }
+
         public void ClosePlot()
         {
             Interactor.ClosePlot(Id);
@@ -59,6 +57,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             Interactor.RemoveSeriesFromPlot(Id, seriesName);
         }
+
         public void ClearSeriesData(string seriesNameToClear)
         {
             Interactor.ClearSeriesData(Id, seriesNameToClear);

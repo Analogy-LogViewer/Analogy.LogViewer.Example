@@ -1,12 +1,11 @@
-﻿using Analogy.LogViewer.Example.IAnalogy;
+﻿using Analogy.Interfaces;
+using Analogy.LogViewer.Example.IAnalogy;
 using System;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Example
 {
     public class OnDemandPlottingContainer
     {
-
         private static readonly Lazy<OnDemandPlottingContainer> _instance =
             new Lazy<OnDemandPlottingContainer>(() => new OnDemandPlottingContainer());
 
@@ -16,7 +15,6 @@ namespace Analogy.LogViewer.Example
 
         public OnDemandPlottingContainer()
         {
-
         }
 
         public void SetFactory(ExampleOnDemandPlottingFactory analogyFactory)

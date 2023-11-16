@@ -16,7 +16,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "Example real time plotting";
         private Timer simulateData;
-        int counter;
+        private int counter;
         public Task InitializePlotting(IAnalogyPlottingInteractor uiInteractor, ILogger logger)
         {
             simulateData = new Timer();
@@ -31,6 +31,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             simulateData.Enabled = true;
             return Task.CompletedTask;
         }
+
         public Task StopPlotting()
         {
             simulateData.Enabled = false;
@@ -42,6 +43,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             yield return ("series1", AnalogyPlottingSeriesType.Line);
             yield return ("series2", AnalogyPlottingSeriesType.Line);
         }
+
         private void SimulateData_Tick(object sender, EventArgs e)
         {
             var now = DateTime.Now;
@@ -51,7 +53,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             OnNewPointData?.Invoke(this, d2);
             counter++;
         }
-        double GenerateValue(double x) { return Math.Sin(x / 1000.0) * 3 * x + x / 2 + 5; }
 
+        private double GenerateValue(double x) { return Math.Sin(x / 1000.0) * 3 * x + x / 2 + 5; }
     }
 }

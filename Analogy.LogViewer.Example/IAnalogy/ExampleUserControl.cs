@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Analogy.Interfaces.Factories;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Factories;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -18,8 +18,11 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public string Title { get; set; } = "User Control Examples";
 
         public IEnumerable<IAnalogyCustomUserControl> UserControls { get; } = new List<IAnalogyCustomUserControl>
-            {new ExampleUserControl()};
+        {
+            new ExampleUserControl(),
+        };
     }
+
     public class ExampleUserControl :IAnalogyCustomUserControl
     {
         public Task InitializeUserControl(Control hostingControl, ILogger logger)

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.LogViewer.Example.Properties;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
-using Analogy.LogViewer.Example.Properties;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -21,10 +21,10 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override string FileOpenDialogFilters { get; set; } = "None (*.none)|*.none";
         public override IEnumerable<string> SupportFormats { get; set; } = new[] { "*.none" };
         public override string? InitialFolderFullPath { get; set; } = Environment.CurrentDirectory;
-        public override IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+        public override IEnumerable<(string OriginalHeader, string ReplacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public override (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public override (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public OfflineExampleDataProvider(string prefix, Guid guid)
         {
@@ -77,7 +77,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             return fileNames.All(CanOpenFile);
         }
-
-
     }
 }

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
@@ -13,14 +13,14 @@ namespace Analogy.LogViewer.Example.IAnalogy
     {
         public override Guid Id { get; set; } = new Guid("877808EC-A3DC-4451-986F-6A7569CDE660");
         public override string? OptionalTitle { get; set; } = "Example Server Side Paging";
-        readonly Array _values = Enum.GetValues(typeof(AnalogyLogLevel));
+        private readonly Array _values = Enum.GetValues(typeof(AnalogyLogLevel));
         private readonly Random _random = new Random();
         private readonly List<string> _processes = Process.GetProcesses().Select(p => p.ProcessName).ToList();
         private List<IAnalogyLogMessage> messages;
         public ServerSidePagingProvider()
         {
             messages = new List<IAnalogyLogMessage>();
-            Task.Run(() =>
+            _ = Task.Run(() =>
             {
                 var msg = new List<IAnalogyLogMessage>();
 
@@ -39,20 +39,17 @@ namespace Analogy.LogViewer.Example.IAnalogy
                         Module = randomProcess,
                         MachineName = Environment.MachineName,
                         ThreadId = Thread.CurrentThread.ManagedThreadId,
-
                     };
                     msg.Add(m);
                 }
 
                 messages = msg;
             });
-
         }
 
         public override Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler)
         {
-
             var filters = messages.Where(m =>
                 m.Date >= (filterCriteria.StartTime ?? DateTime.MinValue)
                 && m.Date <= (filterCriteria.EndTime ?? DateTime.MaxValue));
@@ -63,6 +60,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
                 {
                     continue;
                 }
+
                 filters = filters.Where(m => m.Text is not null && Contains(m.Text, include, StringComparison.InvariantCultureIgnoreCase));
             }
 
@@ -123,6 +121,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
             {
                 filters = filters.Where(m => m.Level ==include);
             }
+
             foreach (var exclude in filterCriteria.ExcludeLevels)
             {
                 filters = filters.Where(m => m.Level != exclude);
@@ -132,7 +131,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
             {
                 if (dynamicColumn.FilterType == AnalogyColumnFilterType.Include)
                 {
-
                     filters = filters.Where(m => m.AdditionalProperties != null &&
                                                  m.AdditionalProperties.ContainsKey(dynamicColumn.ColumnName) &&
                                                  m.AdditionalProperties[dynamicColumn.ColumnName]
@@ -146,7 +144,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
                         if (m.AdditionalProperties == null)
                         {
                             return true;
-
                         }
 
                         return
@@ -155,6 +152,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
                     });
                 }
             }
+
             var result = filters.Skip((pageNumber - 1) * pageCount).Take(pageCount).ToList();
             messagesHandler.AppendMessages(result, OptionalTitle ?? "Example ");
             return Task.FromResult(result.AsEnumerable());
@@ -164,6 +162,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         {
             return string.IsNullOrEmpty(toCheck) || (!string.IsNullOrEmpty(source) && source.IndexOf(toCheck, comp) >= 0);
         }
-
     }
 }

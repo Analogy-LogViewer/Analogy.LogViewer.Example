@@ -23,6 +23,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
                 {
                     return _installedVersionNumber;
                 }
+
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
                 _installedVersionNumber = fvi.FileVersion;
@@ -33,6 +34,5 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override string? LatestVersionNumber { get; set; }
         public override TargetFrameworkAttribute CurrentFrameworkAttribute { get; set; } = (TargetFrameworkAttribute)Assembly.GetExecutingAssembly().GetCustomAttribute(typeof(TargetFrameworkAttribute));
         protected override string RepositoryURL { get; set; } = "https://api.github.com/repos/Analogy-LogViewer/Analogy.LogViewer.Example";
-        
     }
 }

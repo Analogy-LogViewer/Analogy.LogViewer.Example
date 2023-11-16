@@ -7,7 +7,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleOnDemandPlottingFactory : IAnalogyOnDemandPlottingFactory
     {
-
         public Guid Id { get; set; } = new Guid("4f59de24-aaab-4de0-9269-ef681f8f3ee6");
         public string Title { get; set; } = "on Demand Plots Example";
         public List<IAnalogyOnDemandPlotting> OnDemandPlottingGenerators { get; set; }
