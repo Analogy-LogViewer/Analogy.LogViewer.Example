@@ -70,7 +70,7 @@ jobs:
           name: artifactory_Release
       - name: 'Dotnet NuGet Push'
         run: |
-          Get-ChildItem .\artifactory -Filter *.nupkg |
+          Get-ChildItem .\artifactory_Release -Filter *.nupkg |
           Where-Object { !$_.Name.Contains('preview') } |
           ForEach-Object { dotnet nuget push $_ --source https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}} }
         shell: pwsh
