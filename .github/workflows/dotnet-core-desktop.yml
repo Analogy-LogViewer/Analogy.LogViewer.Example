@@ -56,7 +56,7 @@ jobs:
     - name: 'Publish Artifacts'   
       uses: actions/upload-artifact@v4.4.0
       with:
-        name: 'artifactory'
+        name: artifactory_${{ matrix.configuration }}
         path: ./Analogy.LogViewer.Example/bin/${{ matrix.configuration }}
   push-nuget:
     name: 'Push NuGet Packages'
@@ -67,7 +67,7 @@ jobs:
       - name: 'Download Artifact'
         uses: actions/download-artifact@v4.1.7
         with:
-          name: 'artifactory'
+          name: artifactory_${{ matrix.configuration }}
       - name: 'Dotnet NuGet Push'
         run: |
           Get-ChildItem .\artifactory -Filter *.nupkg |
