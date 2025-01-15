@@ -21,7 +21,7 @@
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="7.2.0" />
 		<PackageReference Include="Analogy.CommonUtilities" Version="7.2.0" />
 		<PackageReference Include="Analogy.LogViewer.Template" Version="7.2.0" />
-		<PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
+		<PackageReference Include="System.Resources.Extensions" Version="9.0.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\icon.png">
