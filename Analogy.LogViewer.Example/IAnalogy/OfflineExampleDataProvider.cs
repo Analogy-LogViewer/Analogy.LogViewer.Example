@@ -1,4 +1,5 @@
 ﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Example.Properties;
 using Microsoft.Extensions.Logging;
 using System;

@@ -1,4 +1,5 @@
 ﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using System.Windows.Forms;
 
 namespace Analogy.LogViewer.Example.IAnalogy
