@@ -51,8 +51,8 @@ namespace Analogy.LogViewer.Example.IAnalogy
             ILogMessageCreatedHandler messagesHandler)
         {
             var filters = messages.Where(m =>
-                m.Date >= (filterCriteria.StartTime ?? DateTime.MinValue)
-                && m.Date <= (filterCriteria.EndTime ?? DateTime.MaxValue));
+                m.Date >= (filterCriteria.StartTime ?? DateTimeOffset.MinValue)
+                && m.Date <= (filterCriteria.EndTime ?? DateTimeOffset.MaxValue));
 
             foreach (var include in filterCriteria.IncludeText)
             {

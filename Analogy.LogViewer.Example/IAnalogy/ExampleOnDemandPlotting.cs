@@ -29,7 +29,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 
         private void SimulateData_Tick(object sender, EventArgs e)
         {
-            var now = DateTime.Now;
+            var now = DateTimeOffset.Now;
             AnalogyPlottingPointData d1 = new AnalogyPlottingPointData("series1", GenerateValue(counter), now);
             AnalogyPlottingPointData d2 = new AnalogyPlottingPointData("series2", GenerateValue(counter + 50), now);
             var list = new List<AnalogyPlottingPointData>(2) { d1, d2 };

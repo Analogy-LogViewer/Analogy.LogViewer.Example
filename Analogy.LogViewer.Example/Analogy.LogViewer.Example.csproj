@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
 		<VersionPrefix>8.0.0.0</VersionPrefix>
-		<VersionSuffix>a1</VersionSuffix>
+		<VersionSuffix>a2</VersionSuffix>
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Product>Analogy.LogViewer.Example</Product>
@@ -20,9 +20,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.0.0-a2" />
-		<PackageReference Include="Analogy.CommonUtilities" Version="8.0.0-a1" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="8.0.0-a1" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.0.0" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="8.0.0" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="8.0.0" />
 		<PackageReference Include="System.Resources.Extensions" Version="9.0.1" />
 	</ItemGroup>
 	<ItemGroup>
