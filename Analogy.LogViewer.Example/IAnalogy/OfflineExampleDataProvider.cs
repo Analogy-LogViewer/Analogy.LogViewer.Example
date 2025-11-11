@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OfflineExampleDataProvider : Template.OfflineDataProvider
+    public sealed class OfflineExampleDataProvider : Template.OfflineDataProviderWinforms
     {
         public override Guid Id { get; set; }
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;

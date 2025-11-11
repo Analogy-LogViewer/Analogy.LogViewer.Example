@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
+using Analogy.Interfaces.Winforms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         }
     }
 
-    public class ExtensionUserControlExample : IAnalogyExtensionUserControl
+    public class ExtensionUserControlExample : IAnalogyExtensionUserControlWinforms
     {
         public Guid Id { get; set; } = new Guid("34c45425-8acd-4f8e-b901-d234297fe3ec");
         public Guid TargetComponentId { get; set; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");
@@ -62,7 +63,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public string Description { get; set; } = "Example how to use extension User Control";
         private UserControl UserControl { get; set; }
 
-        Task IAnalogyExtensionUserControl.InitializeUserControl(Control hostingControl, Guid logWindowsId, ILogger logger)
+        public Task InitializeUserControl(Control hostingControl, Guid logWindowsId, ILogger logger)
         {
             return Task.CompletedTask;
         }

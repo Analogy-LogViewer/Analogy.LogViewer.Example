@@ -12,7 +12,7 @@ using Timer = System.Timers.Timer;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OnlineExampleDataProvider : Template.OnlineDataProvider
+    public sealed class OnlineExampleDataProvider : Template.OnlineDataProviderWinforms
     {
         public override string? OptionalTitle { get; set; }
         public override Guid Id { get; set; }
