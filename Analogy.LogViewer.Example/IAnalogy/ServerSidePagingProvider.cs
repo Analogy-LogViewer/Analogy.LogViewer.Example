@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public class ServerSidePagingProvider : Template.IAnalogy.AnalogyProviderSidePagingProviderWinforms
+    public class ServerSidePagingProvider : Template.IAnalogy.AnalogyProviderSidePagingProviderWinForms
     {
         public override Guid Id { get; set; } = new Guid("877808EC-A3DC-4451-986F-6A7569CDE660");
         public override string? OptionalTitle { get; set; } = "Example Server Side Paging";

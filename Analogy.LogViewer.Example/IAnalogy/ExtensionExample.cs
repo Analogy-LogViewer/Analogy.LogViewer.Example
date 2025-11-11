@@ -1,7 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
-using Analogy.Interfaces.Winforms;
+using Analogy.Interfaces.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         }
     }
 
-    public class ExtensionUserControlExample : IAnalogyExtensionUserControlWinforms
+    public class ExtensionUserControlExample : IAnalogyExtensionUserControlWinForms
     {
         public Guid Id { get; set; } = new Guid("34c45425-8acd-4f8e-b901-d234297fe3ec");
         public Guid TargetComponentId { get; set; } = new Guid("6642B160-F992-4120-B688-B02DE2E83256");

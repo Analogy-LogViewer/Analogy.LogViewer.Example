@@ -1,9 +1,9 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.Interfaces.Factories;
-using Analogy.Interfaces.Winforms;
-using Analogy.Interfaces.Winforms.DataTypes;
-using Analogy.Interfaces.Winforms.Factories;
+using Analogy.Interfaces.WinForms;
+using Analogy.Interfaces.WinForms.DataTypes;
+using Analogy.Interfaces.WinForms.Factories;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,18 +15,18 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public class ExampleUserControlFactory : IAnalogyCustomUserControlsFactoryWinforms
+    public class ExampleUserControlFactory : IAnalogyCustomUserControlsFactoryWinForms
     {
         public Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public string Title { get; set; } = "User Control Examples";
 
-        public IEnumerable<IAnalogyCustomUserControlWinforms> UserControls { get; } = new List<IAnalogyCustomUserControlWinforms>
+        public IEnumerable<IAnalogyCustomUserControlWinForms> UserControls { get; } = new List<IAnalogyCustomUserControlWinForms>
         {
             new ExampleUserControl(),
         };
     }
 
-    public class ExampleUserControl : IAnalogyCustomUserControlWinforms
+    public class ExampleUserControl : IAnalogyCustomUserControlWinForms
     {
         public Task InitializeUserControl(Control hostingControl, ILogger logger)
         {
@@ -43,6 +43,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public Image? SmallImage { get; set; }
         public Image? LargeImage { get; set; }
         public string Title { get; set; } = "Example User Control";
-        public AnalogyToolTipWinforms? ToolTip { get; set; }
+        public AnalogyToolTipWinForms? ToolTip { get; set; }
     }
 }

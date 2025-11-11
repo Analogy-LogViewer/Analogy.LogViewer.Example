@@ -1,17 +1,17 @@
 ﻿using Analogy.Interfaces;
-using Analogy.Interfaces.Winforms;
+using Analogy.Interfaces.WinForms;
 using Analogy.LogViewer.Template;
 using System;
 using System.Collections.Generic;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public class ExampleDataProviderFactory : DataProvidersFactoryWinforms
+    public class ExampleDataProviderFactory : DataProvidersFactoryWinForms
     {
         public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public override string Title { get; set; } = "Analogy Online example";
 
-        public override IEnumerable<IAnalogyDataProviderWinforms> DataProviders { get; set; } = new List<IAnalogyDataProviderWinforms>
+        public override IEnumerable<IAnalogyDataProviderWinForms> DataProviders { get; set; } = new List<IAnalogyDataProviderWinForms>
         {
             //add 2 "real time data providers"
             new OnlineExampleDataProvider("Online Data Provider 1", new Guid("6642B160-F992-4120-B688-B02DE2E83256")),
