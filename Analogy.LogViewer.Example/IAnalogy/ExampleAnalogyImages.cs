@@ -1,4 +1,4 @@
-﻿using Analogy.LogViewer.Template.IAnalogy;
+﻿using Analogy.LogViewer.Template.WinForms;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {

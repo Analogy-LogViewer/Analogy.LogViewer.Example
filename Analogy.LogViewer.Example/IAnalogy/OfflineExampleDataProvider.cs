@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Example.Properties;
+using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OfflineExampleDataProvider : Template.OfflineDataProviderWinForms
+    public sealed class OfflineExampleDataProvider : OfflineDataProviderWinForms
     {
         public override Guid Id { get; set; }
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;

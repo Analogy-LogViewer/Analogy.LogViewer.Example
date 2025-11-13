@@ -1,5 +1,5 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
+﻿using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using Timer = System.Timers.Timer;
 
 namespace Analogy.LogViewer.Example.IAnalogy
 {
-    public sealed class OnlineExampleDataProvider : Template.OnlineDataProviderWinForms
+    public sealed class OnlineExampleDataProvider : OnlineDataProviderWinForms
     {
         public override string? OptionalTitle { get; set; }
         public override Guid Id { get; set; }

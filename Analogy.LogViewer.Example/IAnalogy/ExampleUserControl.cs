@@ -1,15 +1,10 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Factories;
-using Analogy.Interfaces.WinForms;
+﻿using Analogy.Interfaces.WinForms;
 using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.Interfaces.WinForms.Factories;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +12,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleUserControlFactory : IAnalogyCustomUserControlsFactoryWinForms
     {
-        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public Guid FactoryId { get; set; } = ExamplePrimaryFactory.Id;
         public string Title { get; set; } = "User Control Examples";
 
         public IEnumerable<IAnalogyCustomUserControlWinForms> UserControls { get; } = new List<IAnalogyCustomUserControlWinForms>

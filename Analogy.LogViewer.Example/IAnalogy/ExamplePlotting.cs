@@ -13,7 +13,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public event EventHandler<AnalogyPlottingPointData> OnNewPointData;
         public event EventHandler<List<AnalogyPlottingPointData>>? OnNewPointsData;
         public Guid Id { get; set; } = new Guid("b8b4be8d-2cff-48ac-90f6-477d36271e84");
-        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public Guid FactoryId { get; set; } = ExamplePrimaryFactory.Id;
         public string Title { get; set; } = "Example real time plotting";
         private Timer simulateData;
         private int counter;

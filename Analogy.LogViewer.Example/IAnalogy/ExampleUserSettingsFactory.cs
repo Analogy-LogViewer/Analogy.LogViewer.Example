@@ -1,14 +1,9 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.WinForms.DataTypes;
+﻿using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.LogViewer.Example.Properties;
-using Analogy.LogViewer.Template;
+using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +11,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExampleUserSettingsFactory : TemplateUserSettingsFactoryWinForms
     {
-        public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public override Guid FactoryId { get; set; } = ExamplePrimaryFactory.Id;
         public override Guid Id { get; set; } = new Guid("fe9d38dc-dd31-4f15-8aee-acb7f7e9085b");
         public override UserControl DataProviderSettings { get; set; }
         public override string Title { get; set; } = "Example User Settings";

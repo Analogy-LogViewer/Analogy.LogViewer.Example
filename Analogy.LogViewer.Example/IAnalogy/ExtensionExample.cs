@@ -12,7 +12,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
 {
     public class ExtensionFactoryExample : IAnalogyExtensionsFactory
     {
-        public Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public Guid FactoryId { get; set; } = ExamplePrimaryFactory.Id;
         public string Title { get; set; } = "Extension Example";
         public IEnumerable<IAnalogyExtension> Extensions { get; } = new List<IAnalogyExtension> { new ExtensionInPlaceExample(), new ExtensionUserControlExample() };
     }
