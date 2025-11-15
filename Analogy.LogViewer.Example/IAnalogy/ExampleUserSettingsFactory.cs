@@ -1,4 +1,5 @@
-﻿using Analogy.Interfaces.WinForms.DataTypes;
+﻿using Analogy.Interfaces.DataTypes;
+using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.LogViewer.Example.Properties;
 using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
@@ -17,7 +18,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override string Title { get; set; } = "Example User Settings";
         public override Image? SmallImage { get; set; } = Resources.Analogy_image_16x16;
         public override Image? LargeImage { get; set; } = Resources.Analogy_image_32x32;
-        public override AnalogyToolTipWinForms? ToolTip { get; set; } = new AnalogyToolTipWinForms("Example tooltip", "some content",
+        public override AnalogyToolTip ToolTip { get; set; } = new AnalogyToolTipWithImages("Example tooltip", "some content",
             "footer/title", Resources.Analogy_image_16x16, Resources.Analogy_image_32x32);
 
         public override void CreateUserControl(ILogger logger)

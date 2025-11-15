@@ -11,7 +11,7 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public override Guid FactoryId { get; set; } = ExamplePrimaryFactory.Id;
         public override string Title { get; set; } = "Analogy Online example";
 
-        public override IEnumerable<IAnalogyDataProviderWinForms> DataProviders { get; } = new List<IAnalogyDataProviderWinForms>
+        public override IEnumerable<IAnalogyDataProvider> DataProviders { get; set; } = new List<IAnalogyDataProvider>
         {
             //add 2 "real time data providers"
             new OnlineExampleDataProvider("Online Data Provider 1", new Guid("6642B160-F992-4120-B688-B02DE2E83256")),

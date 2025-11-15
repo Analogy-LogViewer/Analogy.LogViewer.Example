@@ -38,6 +38,6 @@ namespace Analogy.LogViewer.Example.IAnalogy
         public Image? SmallImage { get; set; }
         public Image? LargeImage { get; set; }
         public string Title { get; set; } = "Example User Control";
-        public AnalogyToolTipWinForms? ToolTip { get; set; }
+        public AnalogyToolTipWithImages? ToolTip { get; set; }
     }
 }
