@@ -21,8 +21,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: Analogy.Example.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: Analogy.LogViewer.Example.UnitTests\Analogy.LogViewer.Example.UnitTests.csproj     # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Solution_Name: Analogy.Example.slnx
+      Test_Project_Path: Analogy.LogViewer.Example.UnitTests\Analogy.LogViewer.Example.UnitTests.csproj
      
     steps:
     - name: Checkout
